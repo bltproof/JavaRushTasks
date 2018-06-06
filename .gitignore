@@ -4,4 +4,5 @@ out
 *.properties
 *.log
 *.iml
+out.*
 
