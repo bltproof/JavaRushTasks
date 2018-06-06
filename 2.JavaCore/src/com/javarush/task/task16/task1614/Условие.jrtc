@@ -1,0 +1,12 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1614">
+<h3>Обратный отсчет</h3>
+<p>1. Разберись, что делает программа.<br />
+2. Реализуй логику метода printCountdown так, чтобы программа каждые полсекунды выводила объект из переменной <mark class="user">list</mark>. Выводить нужно в обратном порядке &#8212; от переданного в <mark class="user">Countdown</mark> индекса до нуля.</p>
+<p><strong>Пример:</strong><br />
+Передан индекс <span class="text-user"><strong>3</strong></span></p>
+<p><strong>Пример вывода в консоль:</strong><br />
+<code>Строка 2<br />
+Строка 1<br />
+Строка 0</code></p>
+
+</div>

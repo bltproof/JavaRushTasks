@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1616">
+<h3>Считаем секунды</h3>
+<p>1. Напиши реализацию метода <mark>run</mark> в нити <span class="text-corporate"><strong>Stopwatch</strong></span> (<strong>секундомер</strong>).<br />
+2. <span class="text-corporate"><strong>Stopwatch</strong></span> должен посчитать количество секунд, которое прошло от создания нити до ввода строки.<br />
+3. Выведи количество секунд в консоль.</p>
+
+</div>

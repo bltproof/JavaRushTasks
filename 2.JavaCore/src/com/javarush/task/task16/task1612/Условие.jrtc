@@ -1,0 +1,11 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1612">
+<h3>Stopwatch (Секундомер)</h3>
+<p>1. Разберись, что делает программа.<br />
+2. Реализуй логику метода <mark>doStep</mark> так, чтобы учитывалась скорость бегуна.<br />
+2.1. Метод <mark>getSpeed()</mark> в классе <span class="text-corporate"><strong>Runner</strong></span> показывает, сколько шагов в секунду делает бегун.<br />
+Нужно, чтобы бегун действительно делал заданное количество шагов в секунду.<br />
+Если Иванов делает <span class="text-user"><strong>4</strong></span> <strong>шага</strong> в секунду, то за <span class="text-user"><strong>2</strong></span> <strong>секунды</strong> он сделает <span class="text-user"><strong>8</strong></span> <strong>шагов</strong>.<br />
+Если Петров делает <strong><span class="text-user">2</span> шага</strong> в секунду, то за <strong><span class="text-user">2</span> секунды</strong> он сделает <strong><span class="text-user">4</span> шага</strong>.<br />
+2.2. Метод <mark>sleep</mark> в классе <span class="text-corporate"><strong>Thread</strong></span> принимает параметр типа <span class="text-corporate">long</span>.</p>
+
+</div>

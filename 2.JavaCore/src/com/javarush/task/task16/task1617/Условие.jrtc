@@ -1,0 +1,14 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1617">
+<h3>Отсчет на гонках</h3>
+<p>1. Разберись, что делает программа.<br />
+2. Реализуй логику метода <mark>run</mark> так, чтобы каждую секунду через пробел<br />
+выдавался отсчет начиная с <mark class="user">countSeconds</mark> до <span class="text-user"><strong>1</strong></span>, а потом слово <strong>[Марш!]</strong> (<em>см примеры</em>).<br />
+3. Если нить работает <span class="text-user"><strong>3.5</strong></span> секунды или более, прерви ее методом interrupt и внутри нити выведи в консоль слово <strong>[Прервано!]</strong>.</p>
+<p><strong>Пример для</strong> <mark class="user">countSeconds</mark>=<span class="text-user"><strong>4</strong></span> :<br />
+&#171;<em><strong>4 3 2 1 Прервано!</strong></em>&#187;</p>
+<p>4. Если нить работает менее <span class="text-user"><strong>3.5</strong></span> секунд, она должна завершиться сама.<br />
+<strong>Пример для</strong> <mark class="user">countSeconds</mark>=<span class="text-user"><strong>3</strong></span> :<br />
+&#171;<em><strong>3 2 1 Марш!</strong></em>&#187;</p>
+<p><strong>PS:</strong> <em>метод sleep выбрасывает <strong>InterruptedException</strong>.</em></p>
+
+</div>

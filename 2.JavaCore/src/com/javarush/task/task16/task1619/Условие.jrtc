@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1619">
+<h3>А без interrupt слабо?</h3>
+<p>Разберись, как работает программа.<br />
+Сделай так, чтобы в методе <mark><strong>ourInterruptMethod</strong></mark> можно было сделать так, чтобы нить <span class="text-corporate"><strong>TestThread</strong></span> завершилась сама.<br />
+Нельзя использовать метод <mark>interrupt</mark>.</p>
+
+</div>

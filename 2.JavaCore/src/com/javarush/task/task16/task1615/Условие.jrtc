@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1615">
+<h3>Аэропорт</h3>
+<p>1. Разберись, что делает программа.<br />
+2. Исправь метод <mark>takingOff(<strong>взлет</strong>)</mark> &#8212; сейчас он работает оооочень долго. Взлет должен занимать <span class="text-user"><strong>100</strong></span> миллисекунд.<br />
+3. Реализуй метод <mark>waiting</mark> по аналогии с методом <mark>takingOff</mark>. Время ожидания не должно превышать время взлета.</p>
+
+</div>

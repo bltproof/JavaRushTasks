@@ -1,0 +1,6 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1618">
+<h3>Снова interrupt</h3>
+<p>Создай нить <span class="text-corporate"><strong>TestThread</strong></span>.<br />
+В методе main создай экземпляр нити, запусти, а потом прерви ее используя метод <mark>interrupt()</mark>.</p>
+
+</div>

@@ -1,0 +1,8 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1611">
+<h3>Часы</h3>
+<p>1. Разберись, что делает программа.<br />
+2. Реализуй логику метода <mark>printTikTak</mark>:<br />
+2.1. Через первые полсекунды должна выводиться в консоль фраза: <em><strong>Tik</strong></em>.<br />
+2.2. Через вторые полсекунды должна выводиться в консоль фраза: <em><strong>Tak</strong></em>.</p>
+
+</div>

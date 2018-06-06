@@ -1,0 +1,11 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1607">
+<h3>Horse Racing</h3>
+<p>Разберись, что делает программа.<br />
+Реализуй метод <mark>calculateHorsesFinished</mark>.<br />
+Он должен:<br />
+1. Посчитать количество финишировавших лошадей и возвратить его. Используй метод <mark>isFinished()</mark>.<br />
+2. Если лошадь еще не пришла к финишу <strong>(!isFinished())</strong>, то:<br />
+2.1. Вывести в консоль &#171;<em><strong>Waiting for</strong> </em>&#187; + <strong>horse.getName()</strong>.<br />
+2.2. Подождать, пока она завершит гонку. Подумай, какой метод нужно использовать для этого.</p>
+
+</div>
