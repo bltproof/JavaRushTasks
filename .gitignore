@@ -1,8 +1,7 @@
-﻿target
-out
+﻿target/
+out/
 .idea
 *.properties
 *.log
 *.iml
 out.*
-
