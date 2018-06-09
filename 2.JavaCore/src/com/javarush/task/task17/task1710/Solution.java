@@ -23,10 +23,9 @@ public class Solution {
         //start here - начни тут
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
 
-
         if (args.length < 2) return;
 
-        if ("-c".equals(args[0]) && args[2].equals("м")) {
+        if ("-c".equals(args[0]) && "м".equals(args[2])) {
             Date strDate = sdf.parse(args[3]);
             Person person = Person.createMale(args[1], strDate);
             allPeople.add(person);
@@ -37,7 +36,6 @@ public class Solution {
             allPeople.add(person);
             System.out.println(allPeople.indexOf(person));
         }
-
         if ("-u".equals(args[0])) {
             Date strDate = sdf.parse(args[4]);
             Person person = allPeople.get(Integer.parseInt(args[1]));
@@ -76,4 +74,3 @@ public class Solution {
         }
     }
 }
-
