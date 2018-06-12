@@ -25,21 +25,23 @@ public class Solution {
                 fileName = reader.readLine();
             }
         }
-        String fileToWrite = "";
+        String fileOut = "";
         FileOutputStream fileOutputStream = null;
-        for (String setElement : filesTreeSet) {
-            if (!setElement.contains(fileToWrite) || fileToWrite.equals("")) {
-                fileToWrite = setElement.substring(0, setElement.lastIndexOf('.'));
-                fileOutputStream = new FileOutputStream(fileToWrite);
+        for (String elementSet : filesTreeSet) {
+            if (!elementSet.contains(fileOut) || fileOut.equals("")) {
+                fileOut = elementSet.substring(0, elementSet.lastIndexOf('.'));
+                fileOutputStream = new FileOutputStream(fileOut);
             }
-            FileInputStream fileInputStream = new FileInputStream(setElement);
-            byte[] buffer = new byte[fileInputStream.available()];
-            while (fileInputStream.available() > 0) {
-                int readed = fileInputStream.read(buffer);
-                fileOutputStream.write(buffer, 0, readed);
+            try (FileInputStream fileInputStream = new FileInputStream(elementSet)) {
+                byte[] buffer = new byte[fileInputStream.available()];
+                while (fileInputStream.available() > 0) {
+                    int count = fileInputStream.read(buffer);
+                    fileOutputStream.write(buffer, 0, count);
+                }
             }
-            fileInputStream.close();
         }
-        if (fileOutputStream != null) fileOutputStream.close();
+        if (fileOutputStream != null) {
+            fileOutputStream.close();
+        }
     }
 }
