@@ -28,7 +28,7 @@ public class Solution {
         String fileOut = "";
         FileOutputStream fileOutputStream = null;
         for (String elementSet : filesTreeSet) {
-            if (!elementSet.contains(fileOut) || fileOut.equals("")) {
+            if (fileOut.equals("")) {
                 fileOut = elementSet.substring(0, elementSet.lastIndexOf('.'));
                 fileOutputStream = new FileOutputStream(fileOut);
             }
