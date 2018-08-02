@@ -7,19 +7,17 @@ import java.io.*;
 */
 
 public class Solution {
-    public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws IOException {
+		try(BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+			BufferedReader fileInput = new BufferedReader(new FileReader(input.readLine()))){
 
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader bFileReader = new BufferedReader(new FileReader(reader.readLine()))){
-
-            while (bFileReader.ready()) {
-                String string = bFileReader.readLine();
-                if (string.startsWith(args[0] + " ")){
-                    System.out.println(string);
-                }
-            }
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
-    }
+			while (fileInput.ready()) {
+				String line = fileInput.readLine();
+				if (line.startsWith(args[0] + " ")){
+					System.out.println(line);
+					break;
+				}
+			}
+		}
+	}
 }
