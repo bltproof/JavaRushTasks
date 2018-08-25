@@ -4,6 +4,11 @@ package com.javarush.task.task18.task1821;
 Встречаемость символов
 */
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Solution {
 	public static void main(String[] args) throws IOException {
         
@@ -17,7 +22,7 @@ public class Solution {
 					treeMap.put(symbol, treeMap.get(symbol) + 1); //перезаписываю ключ и увеличиваю значение на 1
                     
 				} else {
-					treeMap.put(symbol, 1); //если ключа нет - добавляю в карту со значением 1
+					treeMap.put(symbol, 1); //если ключа нет - добавляю в map со значением 1
 				}
 			}
 			for (Map.Entry<Integer, Integer> pair : treeMap.entrySet()) {
@@ -25,7 +30,7 @@ public class Solution {
 			}
 		}
 
-		/*try (FileInputStream fis = new FileInputStream(args[0])) { // вариант решения получше
+		/*try (FileInputStream fis = new FileInputStream(args[0])) {
 			int[] symbolsArray = new int[256];
 			while (fis.available() > 0) {
 				symbolsArray[fis.read()]++;
