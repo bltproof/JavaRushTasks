@@ -4,36 +4,37 @@ package com.javarush.task.task18.task1821;
 Встречаемость символов
 */
 
-import java.io.*;
-import java.util.*;
-
 public class Solution {
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
+        
+		try (FileInputStream fileInputStream = new FileInputStream(args[0])) {
+			TreeMap<Integer, Integer> treeMap = new TreeMap<>(); //создаю map для отсортированного списка по ключу (байту-символу)
+            
+			while (fileInputStream.available() > 0) {
+				int symbol = fileInputStream.read();
+                
+				if (treeMap.containsKey(symbol)) { //если байт-символ есть в map
+					treeMap.put(symbol, treeMap.get(symbol) + 1); //перезаписываю ключ и увеличиваю значение на 1
+                    
+				} else {
+					treeMap.put(symbol, 1); //если ключа нет - добавляю в карту со значением 1
+				}
+			}
+			for (Map.Entry<Integer, Integer> pair : treeMap.entrySet()) {
+				System.out.println((char)(int)pair.getKey() + " " + pair.getValue()); //преобразую ключ в символ и вывожу результат
+			}
+		}
 
-        FileInputStream inputStream = new FileInputStream(args[0]);
-
-        //создаю map для отсортированного списка по ключу (байту)
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-
-        while (inputStream.available() > 0) {
-            int data = inputStream.read();
-
-            if (treeMap.containsKey(data)){ //если  байт есть в карте
-                for (Map.Entry<Integer, Integer> pair : treeMap.entrySet()) { //ищу ключ
-                    if (pair.getKey().equals(data))
-                        pair.setValue(pair.getValue()+1); //нахожу и увеличиваю значение Value
-                }
-            } else
-                treeMap.put(data, 1); //если ключа нет добавляю в карту и ставлю значение 1
-        }
-        inputStream.close();
-
-        for (Map.Entry<Integer,Integer> pair : treeMap.entrySet()) {
-            int a = pair.getKey();
-            int b = pair.getValue();
-            char ch = (char) a;
-
-            System.out.println(ch + " " + b); //преобразую байт в строку и вывожу результат
-        }
-    }
+		/*try (FileInputStream fis = new FileInputStream(args[0])) { // вариант решения получше
+			int[] symbolsArray = new int[256];
+			while (fis.available() > 0) {
+				symbolsArray[fis.read()]++;
+			}
+			for (int i = 0; i < symbolsArray.length; i++) {
+				if (symbolsArray[i] > 0) {
+					System.out.println((char) i + " " + symbolsArray[i]);
+				}
+			}
+		}*/
+	}
 }
