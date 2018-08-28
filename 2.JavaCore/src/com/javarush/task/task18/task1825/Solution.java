@@ -24,12 +24,12 @@ public class Solution {
         }
         String fileOut = "";
         FileOutputStream fileOutputStream = null;
-        for (String elementSet : filesTreeSet) {
+        for (String file : filesTreeSet) {
             if ("".equals(fileOut)) {
-                fileOut = elementSet.substring(0, elementSet.lastIndexOf('.'));
+                fileOut = file.substring(0, file.lastIndexOf('.'));
                 fileOutputStream = new FileOutputStream(fileOut);
             }
-            try (FileInputStream fileInputStream = new FileInputStream(elementSet)) {
+            try (FileInputStream fileInputStream = new FileInputStream(file)) {
                 byte[] buffer = new byte[fileInputStream.available()];
                 int count = fileInputStream.read(buffer);
                 fileOutputStream.write(buffer, 0, count);
