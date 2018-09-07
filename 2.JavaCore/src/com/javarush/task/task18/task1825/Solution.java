@@ -9,13 +9,10 @@ import java.util.*;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        Set<String> filesTreeSet = new TreeSet<>(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                int a = Integer.parseInt(o1.split("part")[1]);
-                int b = Integer.parseInt(o2.split("part")[1]);
-                return a - b;
-            }
+        Set<String> filesTreeSet = new TreeSet<>((o1, o2) -> {
+            int a = Integer.parseInt(o1.split("part")[1]);
+            int b = Integer.parseInt(o2.split("part")[1]);
+            return a - b;
         });
         String fileName;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
@@ -27,17 +24,15 @@ public class Solution {
         }
         String fileOut = "";
         FileOutputStream fileOutputStream = null;
-        for (String elementSet : filesTreeSet) {
+        for (String file : filesTreeSet) {
             if ("".equals(fileOut)) {
-                fileOut = elementSet.substring(0, elementSet.lastIndexOf('.'));
+                fileOut = file.substring(0, file.lastIndexOf('.'));
                 fileOutputStream = new FileOutputStream(fileOut);
             }
-            try (FileInputStream fileInputStream = new FileInputStream(elementSet)) {
+            try (FileInputStream fileInputStream = new FileInputStream(file)) {
                 byte[] buffer = new byte[fileInputStream.available()];
-                while (fileInputStream.available() > 0) {
-                    int count = fileInputStream.read(buffer);
-                    fileOutputStream.write(buffer, 0, count);
-                }
+                int count = fileInputStream.read(buffer);
+                fileOutputStream.write(buffer, 0, count);
             }
         }
         if (fileOutputStream != null) {
@@ -45,3 +40,25 @@ public class Solution {
         }
     }
 }
+/*
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader Reader;
+        BufferedWriter writer;
+        Set<String> set = new TreeSet<>();
+        String s = "";
+        while (!(s = br.readLine()).equals("end")) {
+            set.add(s);
+        }
+        for (String i : set){
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(i.substring(0, i.indexOf (".part" )))));
+            Reader = new BufferedReader(new InputStreamReader(new FileInputStream(i)));
+            while (Reader.ready()){
+                writer.write(Reader.readLine());
+            }
+            Reader.close();
+            writer.close();
+        }
+    }
+}*/
