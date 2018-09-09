@@ -1,17 +1,14 @@
 package com.javarush.task.task19.task1905;
 
-import javax.smartcardio.ATR;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 /* 
 Закрепляем адаптер
 */
 
 public class Solution {
-    public static Map<String, String> countries = new HashMap<String, String>();
+    public static Map<String, String> countries = new HashMap<>();
 
     static {
         countries.put("UA", "Ukraine");
@@ -92,7 +89,7 @@ public class Solution {
 
         @Override
         public String getDialString() {
-            return "callto://" + contact.getPhoneNumber().replaceAll("[^\\d,+]", "");
+            return "callto://" + contact.getPhoneNumber().replaceAll("[^\\d+]", "");
         }
     }
 
