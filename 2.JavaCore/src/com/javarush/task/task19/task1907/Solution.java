@@ -30,9 +30,9 @@ public class Solution {
 
     private static void printCount() {
         int count = 0;
-        String[] sArr = sb.toString().split("[\\W]");
-        for (String str : sArr) {
-            if ("world".equals(str)) {
+        String[] sArray = sb.toString().split("[\\W]");
+        for (String word : sArray) {
+            if ("world".equals(word)) {
                 count++;
             }
         }
