@@ -29,13 +29,13 @@ public class Solution {
     }
 
     private static void printCount() {
-        int count = 0;
+        int wordCount = 0;
         String[] sArray = sb.toString().split("[\\W]");
         for (String word : sArray) {
             if ("world".equals(word)) {
-                count++;
+                wordCount++;
             }
         }
-        System.out.println(count);
+        System.out.println(wordCount);
     }
 }
