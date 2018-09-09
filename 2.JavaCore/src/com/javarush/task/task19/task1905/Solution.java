@@ -44,6 +44,7 @@ public class Solution {
                 return "+38(050)123-45-67";
             }
         };
+
         RowItem rowItem = new DataAdapter(customer, contact);
 
         System.out.println(rowItem.getCountryCode());
@@ -66,8 +67,7 @@ public class Solution {
         public String getCountryCode() {
             String key = "";
             for (Map.Entry<String, String> pair : countries.entrySet()) {
-                String value = pair.getValue();
-                if (value.equals(customer.getCountryName())) {
+                if (pair.getValue().equals(customer.getCountryName())) {
                     key = pair.getKey();
                     break;
                 }
