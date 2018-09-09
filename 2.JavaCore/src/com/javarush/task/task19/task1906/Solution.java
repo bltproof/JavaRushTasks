@@ -33,12 +33,12 @@ public class Solution {
 
     private static void writeFile(String fileNameWrite) {
         try (FileWriter fileWriter = new FileWriter(fileNameWrite)) {
-            int count = 1;
+            int index = 1;
             for (Character ch : charList) {
-                if (count % 2 == 0) {
+                if (index % 2 == 0) {
                     fileWriter.write(ch);
                 }
-                count++;
+                index++;
             }
         } catch (IOException ex) {
             ex.printStackTrace();
