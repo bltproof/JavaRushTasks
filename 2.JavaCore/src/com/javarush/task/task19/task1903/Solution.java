@@ -52,17 +52,10 @@ public class Solution {
         Customer customer = new IncomeDataAdapter(data);
         Contact contact = new IncomeDataAdapter(data);
 
-        IncomeDataAdapter incomeDataAdapter = new IncomeDataAdapter(data);
-
         System.out.println(customer.getCompanyName());
         System.out.println(customer.getCountryName());
         System.out.println(contact.getName());
         System.out.println(contact.getPhoneNumber());
-        System.out.println();
-        System.out.println(incomeDataAdapter.getCompanyName());
-        System.out.println(incomeDataAdapter.getCountryName());
-        System.out.println(incomeDataAdapter.getName());
-        System.out.println(incomeDataAdapter.getPhoneNumber());
     }
 
     public static class IncomeDataAdapter implements Customer, Contact {
@@ -89,17 +82,10 @@ public class Solution {
 
         @Override
         public String getPhoneNumber() {
-            String phoneNmber = String.format("%010d", data.getPhoneNumber());
-            return "+"
-                    + data.getCountryPhoneCode()
-                    + "("
-                    + phoneNmber.substring(0, 3)
-                    + ")"
-                    + phoneNmber.substring(3, 6)
-                    + "-"
-                    + phoneNmber.substring(6, 8)
-                    + "-"
-                    + phoneNmber.substring(8, 10);
+            String phoneNumber = String.format("%010d", data.getPhoneNumber());
+
+            return "+" + data.getCountryPhoneCode() + "(" + phoneNumber.substring(0, 3) + ")"
+                    + phoneNumber.substring(3, 6) + "-" + phoneNumber.substring(6, 8) + "-" + phoneNumber.substring(8, 10);
         }
     }
 
