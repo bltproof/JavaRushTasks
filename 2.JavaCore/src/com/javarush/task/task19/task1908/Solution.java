@@ -19,7 +19,7 @@ public class Solution {
                     int number = Integer.parseInt(element);
                     fileWriter.write(number + " ");
 
-                } catch (Exception ex) {
+                } catch (NumberFormatException ex) {
                     continue;
                 }
             }
