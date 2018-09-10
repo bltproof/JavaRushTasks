@@ -19,9 +19,8 @@ public class Solution {
 
     private static void readFile(String fileNameRead) {
         try (FileReader fileReader = new FileReader(fileNameRead)) {
-            int readed;
-            while ((readed = fileReader.read()) != -1) {
-                sb.append((char) readed);
+            while (fileReader.ready()) {
+                sb.append((char) fileReader.read());
             }
         } catch (IOException ex) {
             ex.printStackTrace();
