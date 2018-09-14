@@ -14,6 +14,7 @@ public class Solution {
 
             while (fileReader.ready()) {
                 fileWriter.write(fileReader.readLine().replaceAll("\\.", "!"));
+                fileWriter.write("\n");
             }
         }
     }
