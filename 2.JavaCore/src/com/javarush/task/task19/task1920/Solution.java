@@ -14,7 +14,6 @@ public class Solution {
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(args[0]))) {
             Map<String, Double> map = new TreeMap<>();
-            double topSalary = 0;
 
             while (fileReader.ready()) {
                 String[] line = fileReader.readLine().split(" ");
@@ -23,11 +22,8 @@ public class Solution {
                         line[0]) ? map.get(line[0]) + Double.parseDouble(line[1]
                 ) : Double.parseDouble(line[1]));
             }
-            for (Map.Entry<String, Double> pair : map.entrySet()) {
-                if (pair.getValue() > topSalary) {
-                    topSalary = pair.getValue();
-                }
-            }
+            double topSalary = Collections.max(map.values());
+
             for (Map.Entry<String, Double> pair : map.entrySet()){
                 if (pair.getValue() == topSalary) {
                     System.out.println(pair.getKey());
