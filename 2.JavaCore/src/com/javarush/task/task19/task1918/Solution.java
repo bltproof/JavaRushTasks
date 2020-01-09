@@ -4,11 +4,11 @@ package com.javarush.task.task19.task1918;
 Знакомство с тегами
 */
 
-import org.jsoup.Jsoup;
+/*import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
-import org.jsoup.select.Elements;
+import org.jsoup.select.Elements;*/
 
 import java.io.*;
 
@@ -28,12 +28,12 @@ public class Solution {
             text = stringBuilder.toString();
             String tag = args[0];
 
-            Document document = Jsoup.parse(text, "", Parser.xmlParser());
+            /*Document document = Jsoup.parse(text, "", Parser.xmlParser());
             Elements elements = document.select(tag);
 
             for (Element s : elements) {
                 System.out.println(s);
-            }
+            }*/
 
         }
     }
