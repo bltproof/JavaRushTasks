@@ -25,13 +25,7 @@ public class Solution {
                 .collect(Collectors.toList());
 
         try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(args[1]))) {
-            StringBuilder sb = new StringBuilder();
-
-            for (String s : list) {
-                sb.append(s);
-                sb.append(",");
-            }
-            fileWriter.write(sb.toString().substring(0, sb.toString().length() - 1));
+            fileWriter.write(String.join(",", list));
         }
     }
 }
