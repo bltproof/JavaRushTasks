@@ -11,16 +11,12 @@ import java.util.stream.Collectors;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        String[] array;
         StringBuilder lines = new StringBuilder();
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(args[0]))) {
             while (fileReader.ready()) {
-                array = fileReader.readLine().split("\\s");
-                for (String line : array) {
-                    lines.append(line);
-                    lines.append(" ");
-                }
+                lines.append(fileReader.readLine());
+                lines.append(" ");
             }
         }
 
@@ -31,14 +27,11 @@ public class Solution {
         try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(args[1]))) {
             StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < list.size(); i++) {
-                sb.append(list.get(i));
-                if ((list.size() - 1) - i == 0) {
-                    break;
-                }
+            for (String s : list) {
+                sb.append(s);
                 sb.append(",");
             }
-            fileWriter.write(sb.toString());
+            fileWriter.write(sb.toString().substring(0, sb.toString().length() - 1));
         }
     }
 }
