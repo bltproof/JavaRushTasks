@@ -18,35 +18,34 @@ public class Solution {
 
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
-
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            for (int i = 0; i < 10; i++) {
-                list.add(reader.readLine());
-            }
-        }
-
         int minFirst = 0;
         int maxFirst = 0;
 
-        for (int i = 0; i < 10; i++) {
-            int length = list.get(i).length();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            for (int i = 0; i < 10; i++) {
+                String str = reader.readLine();
+                int length = str.length();
 
-            if (length < min) {
-                min = length;
+                if (length < min) {
+                    min = length;
 
-                minFirst = i;
+                    minFirst = i;
+                }
+                if (length > max) {
+                    max = length;
+
+                    maxFirst = i;
+                }
+                list.add(str);
             }
-            if (length > max) {
-                max = length;
-
-                maxFirst = i;
-            }
-
         }
+
         if (minFirst < maxFirst) {
             System.out.println(list.get(minFirst));
+
         } else {
             System.out.println(list.get(maxFirst));
+
         }
     }
 }
