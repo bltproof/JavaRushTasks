@@ -9,10 +9,12 @@ Serializable Solution
 */
 public class Solution implements Serializable {
     public static void main(String[] args) {
-//        System.out.println(new Solution(4));
+
+        File file = new File("/PROJECTS/JavaRushTasks/2.JavaCore/src/com/javarush/task/task20/task2014/file.txt");
+
         Solution savedObject = new Solution(4);
 
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("/PROJECTS/JavaRushTasks/2.JavaCore/src/com/javarush/task/task20/task2014/file.txt"))) {
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file))) {
 
             objectOutputStream.writeObject(savedObject);
 
@@ -20,7 +22,7 @@ public class Solution implements Serializable {
             ex.printStackTrace();
         }
 
-        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("/PROJECTS/JavaRushTasks/2.JavaCore/src/com/javarush/task/task20/task2014/file.txt"))) {
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file))) {
 
             Solution loadedObject = (Solution) objectInputStream.readObject();
 
