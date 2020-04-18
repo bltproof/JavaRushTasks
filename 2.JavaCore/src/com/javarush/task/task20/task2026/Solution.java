@@ -5,6 +5,7 @@ package com.javarush.task.task20.task2026;
 */
 public class Solution {
     public static void main(String[] args) {
+
         byte[][] a1 = new byte[][]{
                 {1, 1, 0, 0},
                 {1, 1, 0, 0},
