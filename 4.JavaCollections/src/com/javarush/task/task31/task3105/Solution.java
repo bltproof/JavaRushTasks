@@ -17,23 +17,23 @@ import java.util.zip.ZipOutputStream;
 */
 public class Solution {
     public static void main(String[] args) throws IOException {
-
+        //Решение не проходит валидацию, поскольку используется файловая система(см. условие задачи)
         Path path = Files.createTempFile(Paths.get(args[0]).getParent(), "temp_", ".zip");
+
+        String newFileName = "new/" + Paths.get(args[0]).getFileName();
 
         ZipEntry entry;
 
         try (ZipInputStream zIn = new ZipInputStream(new FileInputStream(args[1]));
              ZipOutputStream zOut = new ZipOutputStream(new FileOutputStream(path.toFile()))) {
 
-
-            zOut.putNextEntry(new ZipEntry("test/new/" + Paths.get(args[0]).getFileName()));
+            zOut.putNextEntry(new ZipEntry(newFileName));
 
             Files.copy(Paths.get(args[0]), zOut);
-            Files.move(path, Paths.get(args[1]), StandardCopyOption.REPLACE_EXISTING);
 
             while ((entry = zIn.getNextEntry()) != null) {
 
-                if (!entry.isDirectory()) {
+                if (!entry.getName().equals(newFileName)) {
                     zOut.putNextEntry(new ZipEntry(entry.getName()));
 
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -50,8 +50,12 @@ public class Solution {
                 }
             }
         }
+        Files.move(path, Paths.get(args[1]), StandardCopyOption.REPLACE_EXISTING);
 
-        /*String newFileName = Paths.get(args[0]).getFileName().toString();
+        //Решение проходит валидацию
+
+        /*
+        String newFileName = Paths.get(args[0]).getFileName().toString();
         String newPathInArchive = "new/" + newFileName;
         ZipEntry entry;
         Map<String, ByteArrayOutputStream> filesInArchive = new HashMap<>();
@@ -67,7 +71,6 @@ public class Solution {
                 while ((length = zipIn.read(buffer)) != -1) {
                     baos.write(buffer, 0, length);
                 }
-//                baos.write(zipIn.readAllBytes());
                 filesInArchive.put(entry.getName(), baos);
             }
         }
@@ -80,6 +83,7 @@ public class Solution {
             zipOut.putNextEntry(new ZipEntry(pair.getKey()));
             pair.getValue().writeTo(zipOut);
         }
-        zipOut.close();*/
+        zipOut.close();
+        */
     }
 }
