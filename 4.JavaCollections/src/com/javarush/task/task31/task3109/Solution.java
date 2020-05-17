@@ -1,5 +1,7 @@
 package com.javarush.task.task31.task3109;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 /* 
@@ -19,6 +21,23 @@ public class Solution {
     }
 
     public Properties getProperties(String fileName) {
-        return null;
+        FileInputStream fis;
+        Properties property = new Properties();
+
+        try {
+            fis = new FileInputStream(fileName);
+
+            if (fileName.endsWith(".xml")) {
+                property.loadFromXML(fis);
+
+            } else {
+                property.load(fis);
+            }
+
+        } catch (IOException e) {
+           return property;
+        }
+
+        return property;
     }
 }
