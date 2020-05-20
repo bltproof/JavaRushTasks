@@ -10,7 +10,6 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
 
     List<Entry<String>> list = new ArrayList<>();
     Entry<String> root;
-    int size = 1;
 
     public CustomTree() {
         this.root = new CustomTree.Entry<>("0");
