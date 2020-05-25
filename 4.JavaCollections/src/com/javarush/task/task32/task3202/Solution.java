@@ -18,8 +18,6 @@ public class Solution {
             String s = reader.lines().collect(Collectors.joining(System.lineSeparator()));
 
             StringWriter writer = new StringWriter();
-            writer.write(s);
-            writer.close();
 
             /*StringBuilder sb = new StringBuilder();
 
@@ -28,9 +26,10 @@ public class Solution {
                 sb.append(line);
             }
 
-            StringWriter writer = new StringWriter();
-            writer.write(sb.toString());
-            writer.close();*/
+            writer.write(sb.toString());*/
+
+            writer.write(s);
+            writer.close();
 
             return writer;
 
