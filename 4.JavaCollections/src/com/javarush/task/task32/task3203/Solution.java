@@ -1,6 +1,10 @@
 package com.javarush.task.task32.task3203;
 
-/* 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+
+/*
 Пишем стек-трейс
 */
 public class Solution {
@@ -10,6 +14,12 @@ public class Solution {
     }
 
     public static String getStackTrace(Throwable throwable) {
-        return null;
+        Writer stringWriter = new StringWriter();
+
+        PrintWriter printWriter = new PrintWriter(stringWriter);
+
+        throwable.printStackTrace(printWriter);
+
+        return stringWriter.toString();
     }
 }
