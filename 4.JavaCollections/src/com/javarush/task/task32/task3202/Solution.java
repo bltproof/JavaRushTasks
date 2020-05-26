@@ -17,12 +17,10 @@ public class Solution {
             String s = reader.lines().collect(Collectors.joining(System.lineSeparator()));
             StringWriter writer = new StringWriter();
 
-            /*StringBuilder sb = new StringBuilder();
-            String line;
+            /*String line;
             while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-            writer.write(sb.toString());*/
+                writer.write(line);
+            }*/
 
             writer.write(s);
             writer.close();
