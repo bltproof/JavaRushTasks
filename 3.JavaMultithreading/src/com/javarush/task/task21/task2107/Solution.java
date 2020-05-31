@@ -1,7 +1,5 @@
 package com.javarush.task.task21.task2107;
 
-import javax.jws.soap.SOAPBinding;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -16,7 +14,7 @@ public class Solution implements Cloneable {
         solution.users.put("Zapp", new User(41, "Zapp"));
         Solution clone = null;
         try {
-            clone = (Solution) solution.clone();
+            clone = solution.clone();
             System.out.println(solution);
             System.out.println(clone);
 
