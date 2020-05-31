@@ -28,11 +28,12 @@ public class Solution {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Solution)) return false;
 
         Solution solution = (Solution) o;
 
-        if (first != null ? !first.equals(solution.first) : solution.first != null) return false;
-        return last != null ? last.equals(solution.last) : solution.last == null;
+        if (!Objects.equals(first, solution.first)) return false;
+        return Objects.equals(last, solution.last);
 
     }
 
