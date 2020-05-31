@@ -66,7 +66,7 @@ public class Solution implements Cloneable {
     @Override
     protected Solution clone() throws CloneNotSupportedException {
         Solution solution = new Solution();
-        for (Map.Entry entry : users.entrySet()) {
+        for (Map.Entry entry : this.users.entrySet()) {
             String key = (String) entry.getKey();
             User value = (User) entry.getValue();
 
