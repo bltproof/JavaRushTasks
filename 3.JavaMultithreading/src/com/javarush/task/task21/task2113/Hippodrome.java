@@ -18,6 +18,18 @@ public class Hippodrome {
         return horses;
     }
 
+    public void run() {
+
+    }
+
+    public void move() {
+
+    }
+
+    public void print() {
+
+    }
+
     public static void main(String[] args) {
 
         Horse horse1 = new Horse("Horse_1", 3, 0);
