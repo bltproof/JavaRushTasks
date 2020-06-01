@@ -27,11 +27,25 @@ public class Hippodrome {
     }
 
     public void move() {
-
+        for (Horse h : getHorses()) {
+            h.move();
+        }
     }
 
     public void print() {
-        
+        for (Horse h : getHorses()) {
+            h.print();
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 
     public static void main(String[] args) {
