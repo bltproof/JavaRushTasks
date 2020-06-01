@@ -22,12 +22,7 @@ public class Solution {
 
         List<User> result = new LinkedList();
 
-        Statement stmt = null;
-        ResultSet rs = null;
-
-        try {
-            stmt = connection.createStatement();
-            rs = stmt.executeQuery(query);
+        try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 int id = rs.getInt("ID");
                 String name = rs.getString("DISPLAYED_NAME");
@@ -39,22 +34,8 @@ public class Solution {
         } catch (SQLException e) {
             e.printStackTrace();
             result = null;
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
+
         return result;
     }
 
@@ -82,7 +63,14 @@ public class Solution {
         }
     }
 
-    public static void main(String[] args) {
+    @Override
+    protected void finalize() throws Throwable {
+        if (connection != null) {
+            connection.close();
+        }
+        super.finalize();
+    }
 
+    public static void main(String[] args) {
     }
 }
