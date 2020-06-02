@@ -50,9 +50,9 @@ public class Hippodrome {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Horse horse1 = new Horse("Horse_1", 3, 0);
-        Horse horse2 = new Horse("Horse_2", 3, 0);
-        Horse horse3 = new Horse("Horse_3", 3, 0);
+        Horse horse1 = new Horse("Slevin", 3, 0);
+        Horse horse2 = new Horse("Lucky", 3, 0);
+        Horse horse3 = new Horse("Homer", 3, 0);
 
         game = new Hippodrome(Arrays.asList(horse1, horse2, horse3));
         game.run();
