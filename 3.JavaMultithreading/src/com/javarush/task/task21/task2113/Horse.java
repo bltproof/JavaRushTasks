@@ -12,7 +12,7 @@ public class Horse {
     }
 
     public void move() {
-        distance = speed * (Math.random() * 2);
+        distance += speed * (Math.random() * 2);
     }
 
     public void print() {
