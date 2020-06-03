@@ -62,7 +62,7 @@ public class Hippodrome {
     }
 
     public void printWinner() {
-        System.out.println("Winner is " + getWinner().getName());
+        System.out.println("Winner is " + getWinner().getName() + "!");
     }
 
     public static void main(String[] args) throws InterruptedException {
