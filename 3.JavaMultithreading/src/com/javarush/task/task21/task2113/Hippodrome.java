@@ -22,7 +22,7 @@ public class Hippodrome {
         for (int i = 1; i <= 100; i++) {
             move();
             print();
-//            Thread.sleep(200);
+            Thread.sleep(200);
         }
     }
 
@@ -49,22 +49,15 @@ public class Hippodrome {
     }
 
     public Horse getWinner() {
-        List<Horse> list = getHorses();
-        Horse horse = null;
-        double max;
+        Horse horse = this.getHorses().get(0);
+        double max = horse.getDistance();
 
-        for (Horse h : list) {
-            max = h.getDistance();
-            horse = h;
-
-            for (Horse h2 : getHorses()) {
-                if (h2.getDistance() > max) {
-                    max = h2.getDistance();
-                    horse = h2;
+            for (Horse h : getHorses()) {
+                if (h.getDistance() > max) {
+                    max = h.getDistance();
+                    horse = h;
                 }
             }
-            break;
-        }
         return horse;
     }
 
