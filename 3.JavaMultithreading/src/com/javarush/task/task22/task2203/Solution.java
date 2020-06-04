@@ -8,7 +8,7 @@ public class Solution {
         try {
             int tabCount = 0;
 
-            for (int i = 0; i < string.length(); i++) {
+            for (int i = 0; i < string.length(); i++) { //Получаю сумму символов табуляции из строки
                 if (string.charAt(i) == 9) {
                     tabCount++;
                 }
@@ -16,8 +16,8 @@ public class Solution {
 
             int[] tabIndexArray = new int[tabCount];
 
-            for (int i = 0; i < string.length(); i++) {
-                if (string.charAt(i) == 9) {
+            for (int i = 0; i < string.length(); i++) { //Заполняю массив индексами позиций каждого символа табуляции
+                if (string.charAt(i) == '\t') {
                     tabIndexArray[--tabCount] = i;
                 }
             }
