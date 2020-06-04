@@ -9,7 +9,7 @@ public class Solution {
             int tabCount = 0;
 
             for (int i = 0; i < string.length(); i++) { //Получаю сумму символов табуляции из строки
-                if (string.charAt(i) == 9) {
+                if (string.charAt(i) == '\t') {
                     tabCount++;
                 }
             }
