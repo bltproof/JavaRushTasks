@@ -6,6 +6,8 @@ package com.javarush.task.task22.task2203;
 public class Solution {
     public static String getPartOfString(String string) throws TooShortStringException {
         try {
+            //Говнокод без сплита
+            /*
             int tabCount = 0;
 
             for (int i = 0; i < string.length(); i++) { //Получаю сумму символов табуляции из строки
@@ -23,6 +25,12 @@ public class Solution {
             }
 
             return string.substring(tabIndexArray[tabIndexArray.length - 1], tabIndexArray[tabIndexArray.length - 2]).trim();
+            */
+
+            String[] arr = string.split("\t");
+            if (arr.length < 3) throw new TooShortStringException();
+
+            return arr[1];
 
         } catch (Exception ex) {
             throw new TooShortStringException();
