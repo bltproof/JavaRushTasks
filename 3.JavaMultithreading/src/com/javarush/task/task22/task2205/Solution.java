@@ -11,6 +11,6 @@ public class Solution {
     }
 
     public static String getFormattedString() {
-        return "";
+        return "%3$S %4$s %2$s %1$s";
     }
 }
