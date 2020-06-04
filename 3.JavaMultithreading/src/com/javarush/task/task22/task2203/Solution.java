@@ -30,7 +30,7 @@ public class Solution {
             String[] arr = string.split("\t");
             if (arr.length < 3) throw new TooShortStringException();
 
-            return arr[1];
+            return arr[1].trim();
 
         } catch (Exception ex) {
             throw new TooShortStringException();
