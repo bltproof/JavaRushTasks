@@ -43,7 +43,6 @@ public class Solution {
                     sb.delete(0, sb.length());
                 }
             }
-            System.out.println(result);
 
         } catch (IOException e) {
             e.printStackTrace();
