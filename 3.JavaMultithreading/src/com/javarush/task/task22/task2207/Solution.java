@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-/* 
+/*
 Обращенные слова
 */
 public class Solution {
@@ -22,24 +22,35 @@ public class Solution {
                 sb.append(reader.readLine());
                 sb.append(" ");
             }
-            List<String> list = new ArrayList<>(Arrays.asList(sb.toString().split("\\s")));
+            List<String> list = new ArrayList<>(Arrays.asList(sb.toString().split("\\s+")));
+            List<String> listCopy = new ArrayList<>(list);
 
             sb = new StringBuilder();
-            String str = list.get(0);
+            Iterator i = list.iterator();
 
-            for (int i = 1; i < list.size() - 1; i++) {
-                sb.append(str);
+            while (i.hasNext()) {
+                String s = (String) i.next();
 
-                if (sb.reverse().toString().equals(list.get(i))) {
-                    Pair pair = new Pair();
-                    pair.first = str;
-                    pair.second = list.get(i);
-                    if (!result.contains(pair)) {
-                        result.add(pair);
+//                for (String s2 : list) {
+                Iterator i2 = listCopy.iterator();
+
+                while (i2.hasNext()) {
+                    String s2 = (String) i2.next();
+                    sb.append(s2);
+                    String str = sb.reverse().toString();
+
+                    if (str.equals(s)) {
+                        Pair pair = new Pair();
+                        pair.first = s;
+                        pair.second = s2;
+
+                        if (!result.contains(pair)) {
+                            result.add(pair);
+                        }
                     }
+                    sb = new StringBuilder();
                 }
-                str = list.get(i + 1);
-                sb = new StringBuilder();
+                i.remove();
             }
             System.out.println(result);
 
