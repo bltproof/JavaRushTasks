@@ -16,30 +16,22 @@ public class Solution {
         try (Scanner scanner = new Scanner(System.in);
              BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(scanner.nextLine())))) {
 
+            List<String> list = new ArrayList<>();
             StringBuilder sb = new StringBuilder();
 
             while (reader.ready()) {
-                sb.append(reader.readLine());
-                sb.append(" ");
+                list.addAll(Arrays.asList(reader.readLine().split("\\s+")));
             }
-            List<String> list = new ArrayList<>(Arrays.asList(sb.toString().split("\\s+")));
-            List<String> listCopy = new ArrayList<>(list);
 
-            sb = new StringBuilder();
-            Iterator i = list.iterator();
+            for (Iterator<String> i = list.iterator(); i.hasNext(); ) {
+                String s = i.next();
+                i.remove();
 
-            while (i.hasNext()) {
-                String s = (String) i.next();
-
-//                for (String s2 : list) {
-                Iterator i2 = listCopy.iterator();
-
-                while (i2.hasNext()) {
-                    String s2 = (String) i2.next();
+                for (Iterator<String> i2 = list.iterator(); i2.hasNext(); ) {
+                    String s2 = i2.next();
                     sb.append(s2);
-                    String str = sb.reverse().toString();
 
-                    if (str.equals(s)) {
+                    if (sb.reverse().toString().equals(s)) {
                         Pair pair = new Pair();
                         pair.first = s;
                         pair.second = s2;
@@ -48,9 +40,8 @@ public class Solution {
                             result.add(pair);
                         }
                     }
-                    sb = new StringBuilder();
+                    sb.delete(0, sb.length());
                 }
-                i.remove();
             }
             System.out.println(result);
 
