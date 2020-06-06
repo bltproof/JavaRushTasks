@@ -47,6 +47,40 @@ public class Solution {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //Вариант 2
+        /*
+        Scanner scanner = new Scanner(System.in);
+        String fileName = scanner.nextLine();
+
+        Collection<String> words = new HashSet<>();
+        try(Scanner s = new Scanner(new File(fileName))) {
+            while (s.hasNext()) {
+                String line = s.nextLine();
+                if(line != null) {
+                    String[] ww = line.split(" ");
+                    words.addAll(Arrays.asList(ww));
+                }
+            }
+        }
+
+        for(String word: words) {
+            String reverseWord = new StringBuilder(word).reverse().toString();
+            if(words.contains(reverseWord)) {
+                Pair pair = new Pair();
+                pair.first = word;
+                pair.second = reverseWord;
+
+                Pair pair2 = new Pair();
+                pair2.first = reverseWord;
+                pair2.second = word;
+
+                if (!result.contains(pair) && !result.contains(pair2)) {
+                    result.add(pair);
+                }
+            }
+        }
+        */
     }
 
     public static class Pair {
