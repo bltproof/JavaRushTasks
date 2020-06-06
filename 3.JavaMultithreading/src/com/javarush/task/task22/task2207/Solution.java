@@ -27,8 +27,7 @@ public class Solution {
                 String s = i.next();
                 i.remove();
 
-                for (Iterator<String> i2 = list.iterator(); i2.hasNext(); ) {
-                    String s2 = i2.next();
+                for (String s2 : list) {
                     sb.append(s2);
 
                     if (sb.reverse().toString().equals(s)) {
@@ -43,6 +42,7 @@ public class Solution {
                     sb.delete(0, sb.length());
                 }
             }
+            System.out.println(result);
 
         } catch (IOException e) {
             e.printStackTrace();
