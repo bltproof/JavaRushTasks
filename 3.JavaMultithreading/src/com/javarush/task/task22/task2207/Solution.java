@@ -16,18 +16,18 @@ public class Solution {
         try (Scanner scanner = new Scanner(System.in);
              BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(scanner.nextLine())))) {
 
-            List<String> list = new ArrayList<>();
+            List<String> words = new ArrayList<>();
             StringBuilder sb = new StringBuilder();
 
             while (reader.ready()) {
-                list.addAll(Arrays.asList(reader.readLine().split("\\s+")));
+                words.addAll(Arrays.asList(reader.readLine().split("\\s+")));
             }
 
-            for (Iterator<String> i = list.iterator(); i.hasNext(); ) {
+            for (Iterator<String> i = words.iterator(); i.hasNext(); ) {
                 String s = i.next();
                 i.remove();
 
-                for (String s2 : list) {
+                for (String s2 : words) {
                     sb.append(s2);
 
                     if (sb.reverse().toString().equals(s)) {
