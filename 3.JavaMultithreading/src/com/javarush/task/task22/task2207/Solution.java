@@ -61,7 +61,6 @@ public class Solution {
                 }
             }
         }
-        scanner.close();
 
         for(String word: words) {
             String reverseWord = new StringBuilder(word).reverse().toString();
