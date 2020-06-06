@@ -31,5 +31,10 @@ public class Solution {
         }
 
         return !sb.toString().equals("") ? sb.delete(sb.length() - 5, sb.length()).toString() : "";
+        /*
+        return params.entrySet().stream().filter(entry -> entry.getValue() != null)
+                .map(entry -> String.format("%s = '%s'", entry.getKey(), entry.getValue()))
+                .collect(Collectors.joining(" and "));
+        */
     }
 }
