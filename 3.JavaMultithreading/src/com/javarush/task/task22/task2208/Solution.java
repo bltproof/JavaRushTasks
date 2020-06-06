@@ -27,16 +27,10 @@ public class Solution {
             String value = entry.getValue();
 
             if (key != null && value != null) {
-                sb.append(key);
-                sb.append(" = '");
-                sb.append(value).append("' ");
-                sb.append("and ");
+                sb.append(key).append(" = '").append(value).append("' ").append("and ");
             }
         }
-        if (sb.toString().endsWith("and ")) {
-            sb.delete(sb.length() - 4, sb.length());
-        }
 
-        return sb.toString().trim();
+        return sb.delete(sb.length() - 4, sb.length()).toString().trim();
     }
 }
