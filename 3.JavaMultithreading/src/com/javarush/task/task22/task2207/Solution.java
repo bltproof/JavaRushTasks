@@ -58,11 +58,12 @@ public class Solution {
             while (s.hasNext()) {
                 String line = s.nextLine();
                 if(line != null) {
-                    String[] ww = line.split(" ");
+                    String[] ww = line.split("\\s+");
                     words.addAll(Arrays.asList(ww));
                 }
             }
         }
+        scanner.close();
 
         for(String word: words) {
             String reverseWord = new StringBuilder(word).reverse().toString();
