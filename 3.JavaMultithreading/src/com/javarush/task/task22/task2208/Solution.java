@@ -26,11 +26,11 @@ public class Solution {
             String key = entry.getKey();
             String value = entry.getValue();
 
-            if (key != null && value != null) {
+            if (value != null) {
                 sb.append(key).append(" = '").append(value).append("' ").append("and ");
             }
         }
 
-        return sb.delete(sb.length() - 4, sb.length()).toString().trim();
+        return !sb.toString().equals("") ? sb.delete(sb.length() - 4, sb.length()).toString().trim() : "";
     }
 }
