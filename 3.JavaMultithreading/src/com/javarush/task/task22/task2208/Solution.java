@@ -30,6 +30,6 @@ public class Solution {
             }
         }
 
-        return !sb.toString().equals("") ? sb.delete(sb.length() - 4, sb.length()).toString().trim() : "";
+        return !sb.toString().equals("") ? sb.delete(sb.length() - 5, sb.length()).toString() : "";
     }
 }
