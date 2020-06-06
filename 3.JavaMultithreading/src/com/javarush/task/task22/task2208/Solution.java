@@ -14,8 +14,7 @@ public class Solution {
         map.put("age", null);
         map.put("city", "Kiev");
 
-        String s = getQuery(map);
-        System.out.println(s);
+        System.out.println(getQuery(map));
 
     }
 
