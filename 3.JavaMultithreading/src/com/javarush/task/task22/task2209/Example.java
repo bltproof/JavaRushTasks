@@ -34,7 +34,9 @@ public class Example {
         }
 
         List<String> result = new ArrayList<>();
-        fill(Arrays.asList(words), result);
+        List<String> shuffled = Arrays.asList(words);
+        Collections.shuffle(shuffled);
+        fill(shuffled, result);
 
         return new StringBuilder(String.join(" ", result));
     }
@@ -76,3 +78,9 @@ public class Example {
         return false;
     }
 }
+//муд доМ мандарин Нет трам март труД
+//муд доМ март трам мандарин Нет труД
+//март трам мандарин Нет труД доМ муд
+//март трам муд доМ мандарин Нет труД
+//мандарин Нет трам муд доМ март труД
+//мандарин Нет труД доМ март трам муд
