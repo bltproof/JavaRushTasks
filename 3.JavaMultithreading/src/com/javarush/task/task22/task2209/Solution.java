@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -23,7 +21,6 @@ public class Solution {
             while (reader.ready()) {
                 words = reader.readLine().split("\\s+");
             }
-
         }
 
         StringBuilder result = getLine(words);
@@ -32,22 +29,21 @@ public class Solution {
 
     public static StringBuilder getLine(String... words) {
         StringBuilder sb = new StringBuilder();
-        if (words == null) return sb;
-        List<String> wordsList = new ArrayList<>(Arrays.asList(words));
-        sb.append(wordsList.get(words.length - 1));
+        if (words == null || words.length == 0) return sb;
+        sb.append(words[0]);
 
-        for (String w : wordsList) {
+        for (String w : words) {
             if (sb.toString().endsWith(String.valueOf(w.toLowerCase().charAt(0))) && !sb.toString().contains(w)) {
                 sb.append(w);
             }
 
-            for (String w2 : wordsList) {
+            for (String w2 : words) {
                 if (w2.startsWith(sb.substring(sb.length() - 1).toUpperCase()) && !sb.toString().contains(w2)) {
                     sb.append(w2);
                 }
             }
         }
-        String s = sb.toString().replaceAll("(\\p{Ll})(\\p{Lu})","$1 $2");
+        String s = sb.toString().replaceAll("(\\p{Ll})(\\p{Lu})", "$1 $2");
         return new StringBuilder(s);
     }
 }
