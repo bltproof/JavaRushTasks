@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -22,7 +21,6 @@ public class Solution {
                 words = reader.readLine().split("\\s+");
             }
         }
-
         StringBuilder result = getLine(words);
         System.out.println(result.toString());
     }
@@ -40,10 +38,10 @@ public class Solution {
             for (String w2 : words) {
                 if (w2.startsWith(sb.substring(sb.length() - 1).toUpperCase()) && !sb.toString().contains(w2)) {
                     sb.append(w2);
+                    break;
                 }
             }
         }
-        String s = sb.toString().replaceAll("(\\p{Ll})(\\p{Lu})", "$1 $2");
-        return new StringBuilder(s);
+        return new StringBuilder(sb.toString().replaceAll("(\\p{Ll})(\\p{Lu})", "$1 $2"));
     }
 }
