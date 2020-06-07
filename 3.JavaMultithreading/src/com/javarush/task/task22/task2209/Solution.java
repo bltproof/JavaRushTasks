@@ -56,3 +56,6 @@ public class Solution {
 //        return new StringBuilder(sb.toString().replaceAll("(\\p{Ll})(\\p{Lu})", "$1 $2"));
     }
 }
+//муд доМ мандарин Нет трам март труД
+//март трам мандарин Нет труД доМ муд
+//мандарин Нет трам муд доМ март труД
