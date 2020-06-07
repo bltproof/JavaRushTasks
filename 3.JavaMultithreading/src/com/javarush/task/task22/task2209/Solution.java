@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Random;
 import java.util.Scanner;
 
 /*
@@ -26,22 +27,32 @@ public class Solution {
     }
 
     public static StringBuilder getLine(String... words) {
+        int lengthOverall = 0;
         StringBuilder sb = new StringBuilder();
         if (words == null || words.length == 0) return sb;
-        sb.append(words[0]);
+        Random random = new Random();
+        sb.append(words[random.nextInt(words.length)]);
 
         for (String w : words) {
-            if (sb.toString().endsWith(String.valueOf(w.toLowerCase().charAt(0))) && !sb.toString().contains(w)) {
-                sb.append(w);
+            if (sb.toString().toLowerCase().endsWith(String.valueOf(w.toLowerCase().charAt(0))) && !sb.toString().contains(w)) {
+                sb.append(" ").append(w);
+                lengthOverall++;
             }
 
             for (String w2 : words) {
-                if (w2.startsWith(sb.substring(sb.length() - 1).toUpperCase()) && !sb.toString().contains(w2)) {
-                    sb.append(w2);
+                if (w2.toLowerCase().startsWith(sb.substring(sb.length() - 1).toLowerCase()) && !sb.toString().contains(w2)) {
+                    sb.append(" ").append(w2);
+                    lengthOverall++;
                     break;
                 }
             }
+            lengthOverall += w.length();
+
         }
-        return new StringBuilder(sb.toString().replaceAll("(\\p{Ll})(\\p{Lu})", "$1 $2"));
+        if (sb.length() != lengthOverall) {
+            return getLine(words);
+        }
+        return sb;
+//        return new StringBuilder(sb.toString().replaceAll("(\\p{Ll})(\\p{Lu})", "$1 $2"));
     }
 }
