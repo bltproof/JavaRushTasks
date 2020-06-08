@@ -22,7 +22,8 @@ public class Solution {
                         System.out.println("четное трехзначное число");
                     }
 
-                } else if (x % 2 != 0) {
+                } else {
+
                     if (x <= 9) {
                         System.out.println("нечетное однозначное число");
                     } else if (x <= 99) {
