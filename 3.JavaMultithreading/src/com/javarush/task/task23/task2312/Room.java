@@ -8,6 +8,8 @@ public class Room {
     private Snake snake;
     private Mouse mouse;
 
+    private int sleepTime = 500;
+
     public static Room game;
 
     public Room(int width, int height, Snake snake) {
@@ -115,5 +117,15 @@ public class Room {
 
     public void sleep() {
         // делаем паузу, длинна которой зависит от длинны змеи
+        int sleepTime = 520 - (snake.getSections().size() * 20);
+        try {
+            if (snake.getSections().size() <= 15) {
+                Thread.sleep(sleepTime);
+            } else {
+                Thread.sleep(200);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
