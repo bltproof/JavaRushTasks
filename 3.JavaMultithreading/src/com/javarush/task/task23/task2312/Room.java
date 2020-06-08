@@ -8,8 +8,6 @@ public class Room {
     private Snake snake;
     private Mouse mouse;
 
-    private int sleepTime = 500;
-
     public static Room game;
 
     public Room(int width, int height, Snake snake) {
@@ -95,6 +93,55 @@ public class Room {
         //Рисуем все кусочки змеи
         //Рисуем мышь
         //Выводим все это на экран
+        int[][] matrix = new int[height][width];
+
+        int headX = snake.getSections().get(0).getX();
+        int headY = snake.getSections().get(0).getY();
+        int mouseX = mouse.getX();
+        int mouseY = mouse.getY();
+
+        for (int i = 0; i < height; i++) {
+
+            for (int j = 0; j < width; j++) {
+
+                if (i == headY && j == headX) { //HEAD
+                    matrix[i][j] = 2;
+                }
+
+                for (int k = 1; k < snake.getSections().size(); k++) {
+                    int bodyX = snake.getSections().get(k).getX();
+                    int bodyY = snake.getSections().get(k).getY();
+
+                    if (i == bodyY && j == bodyX) { //ELEM
+                        matrix[i][j] = 1;
+                    }
+                }
+
+                if (i == mouseY && j == mouseX) { //MOUSE
+                    matrix[i][j] = 3;
+                }
+            }
+        }
+
+        for (int i = 0; i < height; i++) {
+
+            for (int j = 0; j < width; j++) {
+
+                if (matrix[i][j] == 1) {
+                    System.out.print('x');
+
+                } else if (matrix[i][j] == 2) {
+                    System.out.print('X');
+
+                } else if (matrix[i][j] == 3) {
+                    System.out.print('^');
+
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
     }
 
     public void eatMouse() {
@@ -117,7 +164,7 @@ public class Room {
 
     public void sleep() {
         // делаем паузу, длинна которой зависит от длинны змеи
-        int sleepTime = 520 - (snake.getSections().size() * 20);
+        int sleepTime = 520 - (20 * snake.getSections().size());
         try {
             if (snake.getSections().size() <= 15) {
                 Thread.sleep(sleepTime);
