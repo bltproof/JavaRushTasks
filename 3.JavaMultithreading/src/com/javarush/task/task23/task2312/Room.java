@@ -49,6 +49,14 @@ public class Room {
 
     public void print() {}
 
+    public void createMouse() {
+        this.mouse = new Mouse((int) (Math.random() * width), (int) (Math.random() * height));
+    }
+
+    public void eatMouse() {
+        createMouse();
+    }
+
     public static void main(String[] args) {
         Snake snake = new Snake(1, 2);
         game = new Room(70, 90, snake);
