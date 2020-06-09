@@ -67,20 +67,12 @@ public class Snake {
         checkBody(head);
 
         if (this.isAlive()) {
-            switch (direction) {
-                case UP:
-                case DOWN:
-                case LEFT:
-                case RIGHT:
-                    sections.add(0, head);
-                default:
-                    sections.remove(sections.size() - 1);
-            }
-
-
             if (mouseX == head.getX() && mouseY == head.getY()) {
                 sections.add(0, new SnakeSection(mouseX, mouseY));
                 Room.game.eatMouse();
+            } else {
+                sections.add(0, head);
+                sections.remove(sections.size() - 1);
             }
         }
     }
