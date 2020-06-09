@@ -51,4 +51,12 @@ public class Snake {
 
     public void move(int x, int y) {
     }
+
+    public void checkBorders(SnakeSection head) {
+
+    }
+
+    public void checkBody(SnakeSection head) {
+
+    }
 }
