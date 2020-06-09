@@ -44,16 +44,40 @@ public class Snake {
         switch (direction) {
             case UP:
                 move(0, -1);
-            case RIGHT:
-                move(1, 0);
             case DOWN:
                 move(0, 1);
             case LEFT:
                 move(-1, 0);
+            case RIGHT:
+                move(1, 0);
         }
     }
 
-    public void move(int x, int y) {
+    public void move(int dx, int dy) {
+        int mouseX = Room.game.getMouse().getX();
+        int mouseY = Room.game.getMouse().getY();
+
+        checkBorders(sections.get(0));
+        checkBody(sections.remove(0));
+
+        if (this.isAlive()) {
+            switch (direction) {
+                case UP:
+                    sections.add(0, new SnakeSection(dx, getY() - dy));
+                case DOWN:
+                    sections.add(0, new SnakeSection(dx, getY() + dy));
+                case LEFT:
+                    sections.add(0, new SnakeSection(getX() - dx, dy));
+                case RIGHT:
+                    sections.add(0, new SnakeSection(getX() + dx, dy));
+                default:
+                    sections.remove(sections.size() - 1);
+            }
+            if (mouseX == sections.get(0).getX() && mouseY == sections.get(0).getY()) {
+                sections.add(0, new SnakeSection(mouseX, mouseY));
+                Room.game.eatMouse();
+            }
+        }
     }
 
     public void checkBorders(SnakeSection head) {
