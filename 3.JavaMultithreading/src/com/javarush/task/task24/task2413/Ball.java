@@ -1,4 +1,12 @@
 package com.javarush.task.task24.task2413;
 
-public class Ball {
+public class Ball extends BaseObject {
+
+    public void move() {
+
+    }
+
+    public void draw() {
+
+    }
 }
