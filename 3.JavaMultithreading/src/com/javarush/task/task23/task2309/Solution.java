@@ -52,7 +52,6 @@ public class Solution {
                 return "SELECT * FROM SERVER";
             }
         }.execute();
-
     }
 
     public List<Subject> getSubjects() {
@@ -62,7 +61,6 @@ public class Solution {
                 return "SELECT * FROM SUBJECT";
             }
         }.execute();
-
     }
 
     public List<Subscription> getSubscriptions() {
