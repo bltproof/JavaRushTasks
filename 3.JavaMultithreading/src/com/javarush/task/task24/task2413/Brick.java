@@ -6,11 +6,13 @@ public class Brick extends BaseObject {
         super(x, y, radius);
     }
 
+    @Override
     public void move() {
 
     }
 
-    public void draw() {
+    @Override
+    public void draw(Canvas canvas) {
 
     }
 }
