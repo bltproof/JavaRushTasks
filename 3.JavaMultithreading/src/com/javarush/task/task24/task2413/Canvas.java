@@ -14,9 +14,12 @@ public class Canvas {
     }
 
     void setPoint(double x, double y, char c) {
-        if ((x < 0 || y < 0) || (y >= matrix.length || x >= matrix[0].length)) return;
+        int a = (int) Math.round(x);
+        int b = (int) Math.round(y);
 
-        matrix[(int) x][(int) y] = c;
+        if ((a < 0 || b < 0) || (b >= matrix.length || a >= matrix[0].length)) return;
+
+        matrix[a][b] = c;
     }
 
     void drawMatrix(double x, double y, int[][] matrix, char c) {
