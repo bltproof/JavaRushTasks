@@ -19,15 +19,13 @@ public class Canvas {
 
         if ((a < 0 || b < 0) || (b >= matrix.length || a >= matrix[0].length)) return;
 
-        matrix[a][b] = c;
+        matrix[b][a] = c;
     }
 
     void drawMatrix(double x, double y, int[][] matrix, char c) {
 
         for (int i = 0; i < matrix.length; i++) {
-
             for (int j = 0; j < matrix[0].length; j++) {
-
                 if (matrix[i][j] != 0) {
                     setPoint(x + j, y + i, c);
                 }
