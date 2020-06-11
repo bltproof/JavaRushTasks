@@ -75,7 +75,7 @@ public class Arkanoid {
                 {0, 0, 0, 0}
         };
 
-        Canvas canvas = new Canvas(20, 20);
-        canvas.drawMatrix(3, 4, a, 'c');
+        Canvas canvas = new Canvas(2, 4);
+        canvas.drawMatrix(3, 5, a, 'c');
     }
 }
