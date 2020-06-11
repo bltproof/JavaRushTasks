@@ -23,7 +23,17 @@ public class Arkanoid {
     }
 
     public void move() {
+        stand.move();
+        ball.move();
+    }
 
+    public void draw(Canvas canvas) {
+        stand.draw(canvas);
+        ball.draw(canvas);
+
+        for (Brick brick : bricks) {
+            brick.draw(canvas);
+        }
     }
 
     public int getHeight() {
