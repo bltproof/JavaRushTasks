@@ -23,7 +23,7 @@ public class Arkanoid {
     }
 
     public void move() {
-        
+
     }
 
     public int getHeight() {
@@ -67,5 +67,15 @@ public class Arkanoid {
     }
 
     public static void main(String[] args) {
+        int[][] a = {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 3, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}
+        };
+
+        Canvas canvas = new Canvas(2, 4);
+        canvas.drawMatrix(2, 4, a, 'c');
     }
 }
