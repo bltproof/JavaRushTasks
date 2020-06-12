@@ -5,6 +5,7 @@ import java.util.List;
 public class Arkanoid {
     private int width;
     private int height;
+    private boolean isGameOver = false;
 
     private Ball ball;
     private Stand stand;
@@ -33,6 +34,30 @@ public class Arkanoid {
 
         for (Brick brick : bricks) {
             brick.draw(canvas);
+        }
+    }
+
+    public void checkBricksBump() {
+        for (Brick brick : bricks) {
+            if (ball.isIntersec(brick)) {
+                double angle = Math.random() * 360;
+                ball.setDirection(angle);
+                bricks.remove(brick);
+                break;
+            }
+        }
+    }
+
+    public void checkStandBump() {
+        if (ball.isIntersec(stand)) {
+            double angle = 90 + 20 * (Math.random() - 0.5);
+            ball.setDirection(angle);
+        }
+    }
+
+    public void checkEndGame() {
+        if (ball.y > this.height) {
+            isGameOver = true;
         }
     }
 
