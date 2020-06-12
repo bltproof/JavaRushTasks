@@ -8,5 +8,4 @@ public class Solution {
         SelfInterfaceMarkerImpl obj = new SelfInterfaceMarkerImpl();
         Util.testClass(obj);
     }
-
 }
