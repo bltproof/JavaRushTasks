@@ -6,23 +6,23 @@ package com.javarush.task.task24.task2404;
 public class Solution {
     public static void main(String[] args) {
         Rectangle rectangle = new Rectangle(1, 2, 3, 4);
-        System.out.println(getHeight(rectangle));
-        System.out.println(getWidth(rectangle));
+//        System.out.println(getHeight(rectangle));
+//        System.out.println(getWidth(rectangle));
         /////////////////////expected//////////////////
-        //System.out.println(getHeight(rectangle.castToHasHeight()));
-        //System.out.println(getWidth(rectangle.castToHasWidth()));
+        System.out.println(getHeight(rectangle.castToHasHeight()));
+        System.out.println(getWidth(rectangle.castToHasWidth()));
     }
 
     public static double getHeight(HasHeight rectangle) {
-        return rectangle.getHeight();
+        return rectangle.castToHasHeight();
     }
 
     public static double getWidth(HasWidth rectangle) {
-        return rectangle.getWidth();
+        return rectangle.castToHasWidth();
     }
 
 
-    public static class Rectangle implements HasHeight, HasWidth {
+    public static class Rectangle {
         private Point point1;
         private Point point2;
 
@@ -31,12 +31,12 @@ public class Solution {
             point2 = new Point(x2, y2);
         }
 
-        public double getHeight() {
-            return Math.abs(point1.getY() - point2.getY());
+        public HasHeight castToHasHeight() {
+            return () -> Math.abs(point1.getY() - point2.getY());
         }
 
-        public double getWidth() {
-            return Math.abs(point1.getX() - point2.getX());
+        public HasWidth castToHasWidth() {
+            return () -> Math.abs(point1.getX() - point2.getX());
         }
     }
 }
