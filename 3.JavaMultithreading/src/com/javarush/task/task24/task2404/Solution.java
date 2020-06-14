@@ -13,12 +13,12 @@ public class Solution {
         System.out.println(getWidth(rectangle.castToHasWidth()));
     }
 
-    public static double getHeight(HasHeight rectangle) {
-        return rectangle.castToHasHeight();
+    public static double getHeight(HasHeight height) {
+        return height.getHeight();
     }
 
-    public static double getWidth(HasWidth rectangle) {
-        return rectangle.castToHasWidth();
+    public static double getWidth(HasWidth width) {
+        return width.getWidth();
     }
 
 
@@ -32,11 +32,21 @@ public class Solution {
         }
 
         public HasHeight castToHasHeight() {
-            return () -> Math.abs(point1.getY() - point2.getY());
+            return new HasHeight() {
+                @Override
+                public double getHeight () {
+                    return Math.abs(point1.getY() - point2.getY());
+                }
+            };
         }
 
         public HasWidth castToHasWidth() {
-            return () -> Math.abs(point1.getX() - point2.getX());
+            return new HasWidth() {
+                @Override
+                public double getWidth() {
+                    return Math.abs(point1.getX() - point2.getX());
+                }
+            };
         }
     }
 }
