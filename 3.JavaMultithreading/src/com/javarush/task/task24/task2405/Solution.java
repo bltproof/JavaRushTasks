@@ -10,9 +10,29 @@ public class Solution implements Action {
 
     private Action solutionAction = new Action() {
         //напишите тут ваш код
+        FirstClass firstClass;
+        SecondClass secondClass = new SecondClass();
 
         public void someAction() {
             //напишите тут ваш код
+            if (param > 0) {
+                firstClass = new FirstClass() {
+                    @Override
+                    public Action getDependantAction() {
+                        while (param > 0) {
+                            System.out.println(param--);
+                        }
+                        super.someAction();
+                        return new Action() {
+                            @Override
+                            public void someAction() {
+                            }
+                        };
+                    }
+                };
+                firstClass.getDependantAction();
+            }
+            System.out.println(secondClass.sb.append(SecondClass.SPECIFIC_ACTION_FOR_ANONYMOUS_SECOND_CLASS_PARAM).append(param));
         }
     };
 
