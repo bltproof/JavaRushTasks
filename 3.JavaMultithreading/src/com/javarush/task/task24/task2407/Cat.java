@@ -31,11 +31,10 @@ public class Cat implements Pet {
      */
     public Sayable toSayable(final int i) {
         class CatPet implements Sayable {
-            StringBuilder sb;
 
             @Override
             public String say() {
-                sb = new StringBuilder(" говорит мяу!");
+                StringBuilder sb = new StringBuilder(" говорит мяу!");
 
                 if (i < 1) return name + " спит.";
 
