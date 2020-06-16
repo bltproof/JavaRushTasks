@@ -38,12 +38,10 @@ public class Cat implements Pet {
 
                 if (i < 1) return name + " спит.";
 
-                else {
                     for (int j = i - 1; j > 0; j--) {
                         sb.insert(10, 'я');
                     }
                     return name + sb.toString();
-                }
             }
         }
         return new CatPet();
