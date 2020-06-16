@@ -48,17 +48,18 @@ public class Dog implements Pet {
 
             @Override
             public String say() {
-                if (i < 1) return this.getName() + "спит.";
-
-                return this.getName() + "лает г" + "а".repeat(i) + "в! " + formatter.format(new Date());
+                StringBuilder sb = new StringBuilder(" лает гав! ");
+                if (i < 1) return this.getName() + " спит.";
+                for (int j = i - 1; j > 0; j--) {
+                    sb.insert(7, 'а');
+                }
+                return this.getName() + sb.toString() + formatter.format(new Date());
             }
 
             private String getName() {
                 return getSuperQuotes() + name + getSuperQuotes();
             }
-
         }
-
         return new DogPet();
     }
 }
