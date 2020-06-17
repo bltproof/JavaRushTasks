@@ -18,9 +18,7 @@ public class Util {
 
         //add your code here
         abstract class AbstractJeans implements Jeans {
-            private int id;
-            private int length;
-            private int size;
+            private int id, length, size;
             private double price;
 
             public AbstractJeans(int id, int length, int size, double price) {
@@ -30,11 +28,19 @@ public class Util {
                 this.price = price;
             }
 
-            abstract String getCompany();
+            @Override
+            public int getId() {
+                return id;
+            }
 
             @Override
             public int getLength() {
                 return length;
+            }
+
+            @Override
+            public double getPrice() {
+                return price;
             }
 
             @Override
@@ -43,8 +49,20 @@ public class Util {
             }
 
             @Override
+            public String getTM() {
+                return null;
+            }
+
+            public abstract String getCompanyName();
+
+            @Override
             public String toString() {
-                return getCompany() + "{id=" + getId() + ", length=" + getLength() + ", size=" + getSize() + ", price=" + getPrice();
+                return getCompanyName() + "{" +
+                        "id=" + id +
+                        ", length=" + length +
+                        ", size=" + size +
+                        ", price=" + price +
+                        '}';
             }
         }
 
@@ -55,23 +73,8 @@ public class Util {
             }
 
             @Override
-            String getCompany() {
+            public String getCompanyName() {
                 return Company.Levis.name();
-            }
-
-            @Override
-            public int getId() {
-                return super.id;
-            }
-
-            @Override
-            public double getPrice() {
-                return super.price;
-            }
-
-            @Override
-            public String getTM() {
-                return getCompany();
             }
         }
 
@@ -82,23 +85,8 @@ public class Util {
             }
 
             @Override
-            String getCompany() {
+            public String getCompanyName() {
                 return Company.Denim.name();
-            }
-
-            @Override
-            public int getId() {
-                return super.id;
-            }
-
-            @Override
-            public double getPrice() {
-                return super.price;
-            }
-
-            @Override
-            public String getTM() {
-                return getCompany();
             }
         }
 
@@ -119,25 +107,11 @@ public class Util {
             } else {
                 jeans = new AbstractJeans(id, length, size, price) {
                     @Override
-                    String getCompany() {
-                        if (getTM().equals(Company.Colins.fullName)) {
+                    public String getCompanyName() {
+                        if (company.name().equals(Company.Colins.name())) {
                             return Company.Colins.name();
                         }
                         return Company.CalvinKleinJeans.name();
-                    }
-
-                    @Override
-                    public int getId() {
-                        return super.id;
-                    }
-
-                    @Override
-                    public double getPrice() {
-                        return super.price;
-                    }
-
-                    public String getTM() {
-                        return company.fullName;
                     }
                 };
             }
