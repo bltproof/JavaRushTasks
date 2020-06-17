@@ -5,6 +5,7 @@ import java.text.Format;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.function.Function;
 
 /* 
 Знания - сила!
@@ -24,8 +25,8 @@ public class Solution {
         String[] filepart = {"change {4}", "open {2} and last {3}"};
 
         ChoiceFormat fileform = new ChoiceFormat(filelimits, filepart);
-        Format[] testFormats = {null, dateFormat, fileform};
-        MessageFormat pattform = new MessageFormat("{0}   {1} | {5} {6}");
+        Format[] testFormats = {null, null, dateFormat, fileform};
+        MessageFormat pattform = new MessageFormat("{0} {1} | {5} {6}");
         pattform.setFormats(testFormats);
 
         for (Stock stock : stocks) {
@@ -41,11 +42,10 @@ public class Solution {
     }
 
     public static void sort(List<Stock> list) {
-        list.sort(new Comparator<Stock>() {
-            public int compare(Stock stock1, Stock stock2) {
-                return 0;
-            }
-        });
+        list.sort(Comparator.comparing((Function<Stock, String>) stock -> (String) stock.get("name"))
+                .thenComparing(Comparator.comparing((Function<Stock, Date>) stock -> (Date) stock.get("date")).reversed()
+                        .thenComparing(Comparator.comparing((Function<Stock, Double>) stock -> (Double) stock.get("change")).reversed()
+                                .thenComparing(Comparator.comparing((Function<Stock, Double>) stock -> ((Double) stock.get("last")) - ((Double) stock.get("open"))).reversed()))));
     }
 
     public static class Stock extends HashMap<String, Object> {
