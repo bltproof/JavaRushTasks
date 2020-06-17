@@ -56,7 +56,7 @@ public class Util {
 
             @Override
             String getCompany() {
-                return this.getClass().getSimpleName();
+                return Company.Levis.name();
             }
 
             @Override
@@ -83,7 +83,7 @@ public class Util {
 
             @Override
             String getCompany() {
-                return this.getClass().getSimpleName();
+                return Company.Denim.name();
             }
 
             @Override
@@ -120,17 +120,20 @@ public class Util {
                 jeans = new AbstractJeans(id, length, size, price) {
                     @Override
                     String getCompany() {
-                        return super.getCompany();
+                        if (getTM().equals(Company.Colins.fullName)) {
+                            return Company.Colins.name();
+                        }
+                        return Company.CalvinKleinJeans.name();
                     }
 
                     @Override
                     public int getId() {
-                        return 0;
+                        return super.id;
                     }
 
                     @Override
                     public double getPrice() {
-                        return 0;
+                        return super.price;
                     }
 
                     public String getTM() {
