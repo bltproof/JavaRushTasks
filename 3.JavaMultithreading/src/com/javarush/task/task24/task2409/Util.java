@@ -48,16 +48,11 @@ public class Util {
                 return size;
             }
 
-            @Override
-            public String getTM() {
-                return null;
-            }
-
-            public abstract String getCompanyName();
+            public abstract String getTM();
 
             @Override
             public String toString() {
-                return getCompanyName() + "{" +
+                return getTM() + "{" +
                         "id=" + id +
                         ", length=" + length +
                         ", size=" + size +
@@ -73,8 +68,8 @@ public class Util {
             }
 
             @Override
-            public String getCompanyName() {
-                return Company.Levis.name();
+            public String getTM() {
+                return Company.Levis.fullName;
             }
         }
 
@@ -85,8 +80,8 @@ public class Util {
             }
 
             @Override
-            public String getCompanyName() {
-                return Company.Denim.name();
+            public String getTM() {
+                return Company.Denim.fullName;
             }
         }
 
@@ -107,11 +102,8 @@ public class Util {
             } else {
                 jeans = new AbstractJeans(id, length, size, price) {
                     @Override
-                    public String getCompanyName() {
-                        if (company.name().equals(Company.Colins.name())) {
-                            return Company.Colins.name();
-                        }
-                        return Company.CalvinKleinJeans.name();
+                    public String getTM() {
+                        return company.fullName;
                     }
                 };
             }
