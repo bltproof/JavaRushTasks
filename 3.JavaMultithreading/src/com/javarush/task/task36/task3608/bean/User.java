@@ -17,7 +17,6 @@ public class User implements Cloneable {
         this("", 0, 0);
     }
 
-
     //methods with logic
     public boolean isNew() {
         return id == 0;

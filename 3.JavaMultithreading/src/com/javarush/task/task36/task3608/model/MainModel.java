@@ -38,8 +38,13 @@ public class MainModel implements Model {
     @Override
     public void deleteUserById(long id) {
         userService.deleteUser(id);
-        List<User> users = getAllUsers();
-        modelData.setUsers(users);
+        modelData.setUsers(getAllUsers());
+    }
+
+    @Override
+    public void changeUserData(String name, long id, int level) {
+        userService.createOrUpdateUser(name, id, level);
+        modelData.setUsers(getAllUsers());
     }
 
     private List<User> getAllUsers() {
