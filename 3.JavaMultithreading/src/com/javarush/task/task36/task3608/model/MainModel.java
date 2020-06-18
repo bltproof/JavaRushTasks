@@ -28,4 +28,10 @@ public class MainModel implements Model {
         getModelData().setUsers(deletedUsers);
         modelData.setDisplayDeletedUserList(true);
     }
+
+    @Override
+    public void loadUserById(long userId) {
+        User user = userService.getUsersById(userId);
+        modelData.setActiveUser(user);
+    }
 }
