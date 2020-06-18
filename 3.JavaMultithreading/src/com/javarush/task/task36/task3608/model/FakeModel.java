@@ -19,4 +19,9 @@ public class FakeModel implements Model {
                 new User("B", 2, 1)
         ));
     }
+
+    @Override
+    public void loadDeletedUsers() {
+        throw new UnsupportedOperationException();
+    }
 }
