@@ -18,7 +18,6 @@ public class Solution {
                 break;
                 case TERMINATED:
                     System.out.println(thread.getPriority());
-                break;
             }
         }
     }
