@@ -10,16 +10,13 @@ public class LoggingStateThread extends Thread {
 
     @Override
     public void run() {
+        State state = this.thread.getState();
+        System.out.println(state);
 
-        while (getState() != State.TERMINATED) {
-            switch (thread.getState()) {
-
-                case NEW:
-                    System.out.println(State.NEW);
-                case RUNNABLE:
-                    System.out.println(State.RUNNABLE);
-                case TERMINATED:
-                    System.out.println(State.TERMINATED);
+        while (state != State.TERMINATED) {
+            if (state != this.thread.getState()) {
+                state = this.thread.getState();
+                System.out.println(thread.getState());
             }
         }
     }
