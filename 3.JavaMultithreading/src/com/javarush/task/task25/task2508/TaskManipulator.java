@@ -6,12 +6,12 @@ public class TaskManipulator implements Runnable, CustomThreadManipulator {
     @Override
     public void run() {
         try {
-            while (true) {
+            while (!thread.isInterrupted()) {
                 System.out.println(thread.getName());
                 Thread.sleep(100);
             }
         } catch (InterruptedException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
