@@ -15,15 +15,13 @@ public class Solution {
         System.out.printf(
                 "Транзакция №%d: списание $%d со счета №%d. Баланс: %d.%n",
                 transactionNumber, amount, from.getNumber(), from.getBalance());
-
         from.setBalance(from.getBalance() - amount);
 
         System.out.printf(
                 "Транзакция №%d: зачисление $%d на счет №%d. Баланс: %d.%n",
                 transactionNumber, amount, to.getNumber(), to.getBalance());
-
         to.setBalance(to.getBalance() + amount);
-//        Thread.yield();
+        Thread.yield();
     }
 
     static class Account {
@@ -63,21 +61,15 @@ public class Solution {
         Set<Account> accounts = new HashSet<>();
         Collections.addAll(accounts, a1, a2, a3);
 
-        Thread operationThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 1; i <= 1000; i *= 10) {
-                    moveMoney(a1, a2, i);
-                }
+        Thread operationThread = new Thread(() -> {
+            for (int i = 1; i <= 1000; i *= 10) {
+                moveMoney(a1, a2, i);
             }
         });
 
-        Thread controlThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (operationThread.isAlive()) {
-                    accounts.stream().filter(a -> a.balanceChanged).forEach(Account::checkBalance);
-                }
+        Thread controlThread = new Thread(() -> {
+            while (operationThread.isAlive()) {
+                accounts.stream().filter(a -> a.balanceChanged).forEach(Account::checkBalance);
             }
         });
 
