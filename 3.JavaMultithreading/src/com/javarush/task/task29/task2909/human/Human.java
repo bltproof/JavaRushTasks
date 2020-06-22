@@ -7,6 +7,8 @@ import java.util.List;
 public class Human implements Alive {
     protected int age;
     protected String name;
+    private int id;
+    private static int nextId = 0;
 
     protected int[] size;
 
@@ -20,6 +22,8 @@ public class Human implements Alive {
     public Human(String name, int age) {
         this.name = name;
         this.age = age;
+        this.id = nextId;
+        nextId++;
     }
 
     public String getPosition() {
@@ -28,6 +32,10 @@ public class Human implements Alive {
 
     public void printData() {
         System.out.println(getPosition() + ": " + name);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getAge() {
