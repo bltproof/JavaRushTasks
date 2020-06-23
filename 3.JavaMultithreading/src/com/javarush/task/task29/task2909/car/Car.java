@@ -69,10 +69,11 @@ public abstract class Car {
     }
 
     public void startMoving() {
+        fastenDriverBelt();
+
         if (getNumberOfPassengersCanBeTransferred() > 0) {
             fastenPassengersBelts();
         }
-        fastenDriverBelt();
     }
 
     public void fastenPassengersBelts() {
