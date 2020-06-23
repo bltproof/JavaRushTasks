@@ -1,5 +1,6 @@
 package com.javarush.task.task29.task2909.car;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Car {
@@ -32,21 +33,31 @@ public class Car {
         return new Cabriolet(numberOfPassengers);
     }
 
-    public int fill(double numberOfLiters) {
-        if (numberOfLiters < 0)
-            return -1;
+    public boolean isSummer(Date date, Date summerStart, Date summerEnd) {
+        return !date.before(summerStart) && !date.after(summerEnd);
+    }
+
+
+    public static void main(String[] args) {
+        Car car = new Truck(6);
+        System.out.println(car.getTripConsumption(new Date(120, Calendar.JULY, 1), 100, new Date(120, Calendar.JUNE, 1), new Date(120, Calendar.AUGUST, 31)));
+    }
+
+    public double getWinterConsumption(int length) {
+        return length * winterFuelConsumption + winterWarmingUp;
+    }
+
+    public double getSummerConsumption(int length) {
+        return length * summerFuelConsumption;
+    }
+
+    public void fill(double numberOfLiters) {
+        if (numberOfLiters < 0) throw new RuntimeException();
         fuel += numberOfLiters;
-        return 0;
     }
 
     public double getTripConsumption(Date date, int length, Date SummerStart, Date SummerEnd) {
-        double consumption;
-        if (date.before(SummerStart) || date.after(SummerEnd)) {
-            consumption = length * winterFuelConsumption + winterWarmingUp;
-        } else {
-            consumption = length * summerFuelConsumption;
-        }
-        return consumption;
+        return isSummer(date, SummerStart, SummerEnd) ? getSummerConsumption(length) : getWinterConsumption(length);
     }
 
     public int getNumberOfPassengersCanBeTransferred() {
