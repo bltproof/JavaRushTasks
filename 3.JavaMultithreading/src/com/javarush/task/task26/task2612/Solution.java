@@ -30,6 +30,15 @@ public class Solution {
     }
 
     public void actionIfLockIsBusy() {
+        System.out.println("Waiting...");
+    }
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        Thread thread1 = new Thread(solution::someMethod);
+        thread1.start();
+
+        Thread thread2 = new Thread(solution::someMethod);
+        thread2.start();
     }
 }
