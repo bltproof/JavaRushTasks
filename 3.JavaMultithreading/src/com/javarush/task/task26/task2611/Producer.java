@@ -14,7 +14,7 @@ public class Producer implements Runnable {
         try {
             int i = 0;
             while (true) {
-                map.put(String.valueOf(i++), String.format("Some text for %d", i));
+                map.put(String.valueOf(++i), String.format("Some text for %d", i));
                 Thread.sleep(500);
             }
         } catch (InterruptedException e) {
