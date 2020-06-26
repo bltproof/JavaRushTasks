@@ -21,7 +21,6 @@ public class Server {
         }
     }
 
-
     private static class Handler extends Thread {
         private Socket socket;
 
@@ -29,6 +28,22 @@ public class Server {
             this.socket = socket;
         }
 
+        private String serverHandshake(Connection connection) throws IOException, ClassNotFoundException {
+            while (true) {
+                connection.send(new Message(MessageType.NAME_REQUEST));
+                Message message = connection.receive();
+
+                if (message.getType() == MessageType.USER_NAME) {
+                    if (!message.getData().isEmpty()) {
+                        if (connectionMap.get(message.getData()) == null) {
+                            connectionMap.put(message.getData(), connection);
+                            connection.send(new Message(MessageType.NAME_ACCEPTED));
+                            return message.getData();
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public static void main(String[] args) throws IOException {
