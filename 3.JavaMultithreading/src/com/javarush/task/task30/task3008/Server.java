@@ -44,11 +44,25 @@ public class Server {
                 }
             }
         }
+
         private void notifyUsers(Connection connection, String userName) throws IOException {
             for (Map.Entry entry : connectionMap.entrySet()) {
                 String name = (String) entry.getKey();
                 if (!name.equals(userName)) {
                     connection.send(new Message(MessageType.USER_ADDED, name));
+                }
+            }
+        }
+
+        private void serverMainLoop(Connection connection, String userName) throws IOException, ClassNotFoundException {
+            while (true) {
+                Message message = connection.receive();
+
+                if (message.getType() == MessageType.TEXT) {
+                    String text = userName + ": " + message.getData();
+                    sendBroadcastMessage(new Message(MessageType.TEXT, text));
+                } else {
+                    ConsoleHelper.writeMessage("Ошибка!");
                 }
             }
         }
