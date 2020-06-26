@@ -44,6 +44,14 @@ public class Server {
                 }
             }
         }
+        private void notifyUsers(Connection connection, String userName) throws IOException {
+            for (Map.Entry entry : connectionMap.entrySet()) {
+                String name = (String) entry.getKey();
+                if (!name.equals(userName)) {
+                    connection.send(new Message(MessageType.USER_ADDED, name));
+                }
+            }
+        }
     }
 
     public static void main(String[] args) throws IOException {
