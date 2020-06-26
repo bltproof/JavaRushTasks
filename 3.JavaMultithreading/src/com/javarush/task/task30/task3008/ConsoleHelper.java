@@ -11,7 +11,7 @@ public class ConsoleHelper {
         System.out.println(message);
     }
 
-    public static String readString() throws IOException {
+    public static String readString() {
         String text;
         try {
             text = reader.readLine();
@@ -28,7 +28,7 @@ public class ConsoleHelper {
         try {
             number = Integer.parseInt(readString());
 
-        } catch (IOException | NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Произошла ошибка при попытке ввода числа. Попробуйте еще раз.");
             return readInt();
         }
