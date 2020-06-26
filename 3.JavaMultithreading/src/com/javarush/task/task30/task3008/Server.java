@@ -28,6 +28,27 @@ public class Server {
             this.socket = socket;
         }
 
+        @Override
+        public void run() {
+            ConsoleHelper.writeMessage("Установлено соединение с сервером " + socket.getRemoteSocketAddress());
+            String userName = null;
+
+            try (Connection connection = new Connection(socket)) {
+                userName = serverHandshake(connection);
+                sendBroadcastMessage(new Message(MessageType.USER_ADDED, userName));
+                notifyUsers(connection, userName);
+                serverMainLoop(connection, userName);
+
+            } catch (IOException | ClassNotFoundException e) {
+                ConsoleHelper.writeMessage("произошла ошибка при обмене данными с удаленным адресом");
+            }
+            if (userName != null) {
+                connectionMap.remove(userName);
+                sendBroadcastMessage(new Message(MessageType.USER_REMOVED, userName));
+            }
+            ConsoleHelper.writeMessage("Соединение с удаленным адресом закрыто");
+        }
+
         private String serverHandshake(Connection connection) throws IOException, ClassNotFoundException {
             while (true) {
                 connection.send(new Message(MessageType.NAME_REQUEST));
