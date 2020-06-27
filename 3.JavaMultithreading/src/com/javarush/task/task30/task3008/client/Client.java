@@ -96,7 +96,7 @@ public class Client {
         }
 
         protected void informAboutAddingNewUser(String userName) {
-            ConsoleHelper.writeMessage("Участник с именем '" + userName + "' присоеденился к чату.");
+            ConsoleHelper.writeMessage("Участник с именем '" + userName + "' присоединился к чату.");
         }
 
         protected void informAboutDeletingNewUser(String userName) {
