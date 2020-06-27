@@ -40,13 +40,13 @@ public class Server {
                 serverMainLoop(connection, userName);
 
             } catch (IOException | ClassNotFoundException e) {
-                ConsoleHelper.writeMessage("произошла ошибка при обмене данными с удаленным адресом");
+                ConsoleHelper.writeMessage("Произошла ошибка при обмене данными с удаленным адресом.");
             }
             if (userName != null) {
                 connectionMap.remove(userName);
                 sendBroadcastMessage(new Message(MessageType.USER_REMOVED, userName));
             }
-            ConsoleHelper.writeMessage("Соединение с удаленным адресом закрыто");
+            ConsoleHelper.writeMessage("Соединение с удаленным адресом закрыто.");
         }
 
         private String serverHandshake(Connection connection) throws IOException, ClassNotFoundException {
