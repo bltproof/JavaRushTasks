@@ -20,7 +20,7 @@ public class Client {
             }
 
         } catch (InterruptedException e) {
-            ConsoleHelper.writeMessage("Ошибка. Поток не долждался");
+            ConsoleHelper.writeMessage("Ошибка. Поток не дождался");
             return; //System.exit(1);
         }
 
