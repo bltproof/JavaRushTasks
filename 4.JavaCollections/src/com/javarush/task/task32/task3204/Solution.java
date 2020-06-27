@@ -12,6 +12,6 @@ public class Solution {
     }
 
     public static ByteArrayOutputStream getPassword() {
-        return null;
+        return new ByteArrayOutputStream();
     }
 }
