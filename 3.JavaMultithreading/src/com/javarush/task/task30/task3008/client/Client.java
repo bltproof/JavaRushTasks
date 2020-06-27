@@ -21,7 +21,7 @@ public class Client {
 
         } catch (InterruptedException e) {
             ConsoleHelper.writeMessage("Ошибка. Поток не долждался");
-            System.exit(1);
+            return; //System.exit(1);
         }
 
         if (clientConnected) {
@@ -38,6 +38,7 @@ public class Client {
                     return;
                 }
             }
+
         } else {
             ConsoleHelper.writeMessage("Произошла ошибка во премя работы клиента.");
         }
