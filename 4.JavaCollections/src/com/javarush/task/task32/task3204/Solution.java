@@ -1,6 +1,7 @@
 package com.javarush.task.task32.task3204;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Random;
 
 /* 
 Генератор паролей
@@ -12,6 +13,18 @@ public class Solution {
     }
 
     public static ByteArrayOutputStream getPassword() {
-        return new ByteArrayOutputStream();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        Random random = new Random();
+        String alphabetLowerCase = "abcdefghijklmnopqrstuvwxyz";
+        String alphabetUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String numbers = "1234567890";
+
+        for (int i = 0; i < 8; i++) {
+            out.write(alphabetLowerCase.charAt(random.nextInt(alphabetLowerCase.length())));
+            out.write(alphabetUpperCase.charAt(random.nextInt(alphabetUpperCase.length())));
+            if (out.size() == 8) return out;
+            out.write(numbers.charAt(random.nextInt(numbers.length())));
+        }
+        return out;
     }
 }
