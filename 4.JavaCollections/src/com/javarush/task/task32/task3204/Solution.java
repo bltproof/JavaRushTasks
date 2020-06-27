@@ -14,15 +14,12 @@ public class Solution {
 
     public static ByteArrayOutputStream getPassword() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        String lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
-        String upperCaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String numbers = "1234567890";
 
         for (int i = 0; i < 8; i++) {
-            out.write(lowerCaseAlphabet.charAt(new Random().nextInt(lowerCaseAlphabet.length())));
-            out.write(upperCaseAlphabet.charAt(new Random().nextInt(upperCaseAlphabet.length())));
+            out.write("abcdefghijklmnopqrstuvwxyz".charAt(new Random().nextInt(26)));
+            out.write("ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(new Random().nextInt(26)));
             if (out.size() == 8) return out;
-            out.write(numbers.charAt(new Random().nextInt(numbers.length())));
+            out.write("1234567890".charAt(new Random().nextInt(10)));
         }
         return out;
     }
