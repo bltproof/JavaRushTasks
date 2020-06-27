@@ -40,7 +40,7 @@ public class Client {
             }
 
         } else {
-            ConsoleHelper.writeMessage("Произошла ошибка во премя работы клиента.");
+            ConsoleHelper.writeMessage("Произошла ошибка во время работы клиента.");
         }
     }
 
@@ -113,10 +113,12 @@ public class Client {
 
         protected void clientHandshake() throws IOException, ClassNotFoundException {
             while (true) {
-                if (connection.receive().getType() == MessageType.NAME_REQUEST) {
+                Message message = connection.receive();
+
+                if (message.getType() == MessageType.NAME_REQUEST) {
                     connection.send(new Message(MessageType.USER_NAME, getUserName()));
 
-                } else if (connection.receive().getType() == MessageType.NAME_ACCEPTED) {
+                } else if (message.getType() == MessageType.NAME_ACCEPTED) {
                     notifyConnectionStatusChanged(true);
                     return;
 
