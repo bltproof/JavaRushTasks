@@ -8,8 +8,8 @@ import java.util.*;
 */
 public class CustomTree extends AbstractList<String> implements Cloneable, Serializable {
 
-    List<Entry<String>> list = new ArrayList<>();
-    Entry<String> root;
+    private List<Entry<String>> list = new ArrayList<>();
+    private Entry<String> root;
 
     public CustomTree() {
         this.root = new CustomTree.Entry<>("0");
