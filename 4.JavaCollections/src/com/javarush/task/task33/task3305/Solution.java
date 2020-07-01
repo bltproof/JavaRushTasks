@@ -28,7 +28,6 @@ public class Solution {
     public static void convertToJson(ParkingLot parkingLot) throws IOException {
         StringWriter writer = new StringWriter();
         ObjectMapper mapper = new ObjectMapper();
-        mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
         mapper.writerWithDefaultPrettyPrinter().writeValue(writer, parkingLot);
         System.out.println(writer.toString());
     }
