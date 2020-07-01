@@ -111,14 +111,28 @@ public class Field {
         //Копируем все непустые линии в список.
         //Добавляем недостающие строки в начало списка.
         //Преобразуем список обратно в матрицу
-        List<String> lines = new ArrayList<>();
-        for (int i : matrix[height]) {
-            System.out.println(i);
-        }
-    }
+        //Создаем список для хранения линий
+        ArrayList<int[]> lines = new ArrayList<>();
 
-    public static void main(String[] args) {
-        Field field = new Field(3, 3);
-        field.removeFullLines();
+        //Копируем все непустые линии в список.
+        for (int i = 0; i < height; i++) {
+            //подсчитываем количество единиц в строке - просто суммируем все ее значения
+            int count = 0;
+            for (int j = 0; j < width; j++) {
+                count += matrix[i][j];
+            }
+
+            //Если сумма строки не равна ее ширине - добавляем в список
+            if (count != width)
+                lines.add(matrix[i]);
+        }
+
+        //Добавляем недостающие строки в начало списка.
+        while (lines.size() < height) {
+            lines.add(0, new int[width]);
+        }
+
+        //Преобразуем список обратно в матрицу
+        matrix = lines.toArray(new int[height][width]);
     }
 }
