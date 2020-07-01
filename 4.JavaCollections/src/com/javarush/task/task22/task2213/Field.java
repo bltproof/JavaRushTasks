@@ -112,7 +112,7 @@ public class Field {
         //Добавляем недостающие строки в начало списка.
         //Преобразуем список обратно в матрицу
         //Создаем список для хранения линий
-        ArrayList<int[]> lines = new ArrayList<>();
+        List<int[]> lines = new ArrayList<>();
 
         //Копируем все непустые линии в список.
         for (int i = 0; i < height; i++) {
