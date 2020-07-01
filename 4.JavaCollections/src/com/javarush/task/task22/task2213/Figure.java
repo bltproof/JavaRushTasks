@@ -11,13 +11,23 @@ public class Figure {
         this.matrix = matrix;
     }
 
-    public void left() {}
+    public void left() {
+        x--;
+        if (!isCurrentPositionAvailable()) x++;
+    }
 
-    public void right() {}
+    public void right() {
+        x++;
+        if (!isCurrentPositionAvailable()) x--;
+    }
 
-    public void down() {}
+    public void up() {
+        y--;
+    }
 
-    public void up() {}
+    public void down() {
+        y++;
+    }
 
     public void rotate() {}
 
