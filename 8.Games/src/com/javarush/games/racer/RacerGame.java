@@ -24,6 +24,16 @@ public class RacerGame extends Game {
     }
 
     private void drawField() {
-
+        for (int x = 0; x < WIDTH; x++) {
+            for (int y = 0; y < HEIGHT; y++) {
+                if (x == CENTER_X) {
+                    setCellColor(CENTER_X, y, Color.WHITE);
+                } else if (x >= ROADSIDE_WIDTH && x < (WIDTH - ROADSIDE_WIDTH)) {
+                    setCellColor(x, y, Color.DIMGREY);
+                } else {
+                    setCellColor(x, y, Color.GREEN);
+                }
+            }
+        }
     }
 }
