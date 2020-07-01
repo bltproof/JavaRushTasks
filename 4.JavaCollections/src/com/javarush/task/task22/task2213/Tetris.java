@@ -100,7 +100,6 @@ public class Tetris {
             //создаем новую фигурку
             figure = FigureFactory.createRandomFigure(field.getWidth() / 2, 0);
         }
-
     }
 
     /**
