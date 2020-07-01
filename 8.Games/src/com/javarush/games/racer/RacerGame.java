@@ -1,6 +1,7 @@
 package com.javarush.games.racer;
 
-import com.javarush.engine.cell.*;
+import com.javarush.engine.cell.Color;
+import com.javarush.engine.cell.Game;
 
 public class RacerGame extends Game {
     public static final int WIDTH = 64;
@@ -34,6 +35,13 @@ public class RacerGame extends Game {
                     setCellColor(x, y, Color.GREEN);
                 }
             }
+        }
+    }
+
+    @Override
+    public void setCellColor(int x, int y, Color color) {
+        if (x >= 0 && x <= WIDTH - 1 && y >= 0 && y <= HEIGHT - 1) {
+            super.setCellColor(x, y, color);
         }
     }
 }
