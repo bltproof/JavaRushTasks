@@ -2,7 +2,6 @@ package com.javarush.task.task25.task2515;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -21,8 +20,6 @@ public class Space {
     private List<Bomb> bombs = new ArrayList<>();
     //Список ракет
     private List<Rocket> rockets = new ArrayList<>();
-
-    private int count = 0;
 
     public Space(int width, int height) {
         this.width = width;
@@ -114,8 +111,9 @@ public class Space {
     public void createUfo() {
         //тут нужно создать новый НЛО.
         //1 раз за 10 вызовов метода.
-        count++;
-        if (count == 10) {
+        if (ufos.size() > 0) return;
+
+        if (Math.random() * 10 == 0) {
             ufos.add(new Ufo(Math.random() * width, Math.random() * height / 2));
         }
     }
@@ -153,7 +151,7 @@ public class Space {
                 }
             }
 
-            if (rocket.getY() <= height)
+            if (rocket.getY() <= 0)
                 rocket.die();
         }
     }
