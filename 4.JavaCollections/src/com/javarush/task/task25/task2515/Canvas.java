@@ -45,4 +45,25 @@ public class Canvas {
             }
         }
     }
+
+    public void clear() {
+        this.matrix = new char[height][width];
+    }
+
+    public void print() {
+        System.out.println();
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                System.out.print(" ");
+                System.out.print(matrix[i][j]);
+                System.out.print(" ");
+            }
+
+            System.out.println();
+        }
+
+        System.out.println();
+        System.out.println();
+    }
 }
