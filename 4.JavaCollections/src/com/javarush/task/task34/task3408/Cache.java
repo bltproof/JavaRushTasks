@@ -1,7 +1,5 @@
 package com.javarush.task.task34.task3408;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -11,39 +9,30 @@ public class Cache<K, V> {
 
     public V getByKey(K key, Class<V> clazz) throws Exception {
         //TODO add your code here
-        V obj = cache.get(key);
+        V object = cache.get(key);
 
-        if (obj == null) {
-            String fieldName = "";
+        if (object == null) {
+            V newObject = clazz.getConstructor(key.getClass()).newInstance(key);
+            cache.put(key, newObject);
 
-            for (Field f : clazz.getDeclaredFields()) {
-                fieldName = f.getName();
-            }
-            Field f = clazz.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            V newObj = clazz.newInstance();
-            f.set(newObj, key);
-            cache.put(key, newObj);
-
-            return newObj;
+            return newObject;
         }
 
-        return obj;
+        return object;
     }
 
-    public boolean put(V obj) throws InvocationTargetException, IllegalAccessException {
+    public boolean put(V obj) {
         //TODO add your code here
-        K key = null;
+        try {
+            Method m = obj.getClass().getDeclaredMethod("getKey");
+            m.setAccessible(true);
+            K key = (K) m.invoke(obj);
+            cache.put(key, obj);
 
-        for (Method m : obj.getClass().getDeclaredMethods()) {
-            if (m.getName().contains("getKey")) {
-                m.setAccessible(true);
-                key = (K) m.invoke(obj);
-            }
+        } catch (Exception e) {
+            return false;
         }
-        cache.put(key, obj);
-
-        return key != null;
+        return true;
     }
 
     public int size() {
