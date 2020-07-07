@@ -81,9 +81,9 @@ public class AmigoSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, Se
      * Reconstitute the <tt>HashSet</tt> instance from a stream (that is,
      * deserialize it).
      */
-    private static final int MAXIMUM_CAPACITY = 1 << 30;
+    static final int MAXIMUM_CAPACITY = 1 << 30;
 
-    private static int tableSizeFor(int cap) {
+    static final int tableSizeFor(int cap) {
         int n = cap - 1;
         n |= n >>> 1;
         n |= n >>> 2;
@@ -132,7 +132,7 @@ public class AmigoSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, Se
                 .checkArray(s, Map.Entry[].class, tableSizeFor(capacity));
 
         // Create backing HashMap
-        map = new HashMap<>(capacity, loadFactor);
+        map = new HashMap<E,Object>(capacity, loadFactor);
 
         // Read in all elements in the proper order.
         for (int i=0; i<size; i++) {
