@@ -10,12 +10,12 @@ public class House<T> {
 
     private List<T> residents = new ArrayList<>();
 
-    public void enter(Object resident) {
-        residents.add((T) resident);
+    public void enter(T resident) {
+        residents.add(resident);
 //        checkConflicts();
     }
 
-    public void leave(Object resident) {
+    public void leave(T resident) {
         residents.remove(resident);
     }
 
@@ -57,13 +57,11 @@ public class House<T> {
         House<Dog> dogHouse = new House<>();
         dogHouse.enter(bruno);
         dogHouse.enter(larsik);
-        dogHouse.enter(barsik);
         System.out.println(dogHouse.toString());
 
         House<Cat> catHouse = new House<>();
         catHouse.enter(barsik);
         catHouse.enter(keksik);
-        catHouse.enter(bruno);
         System.out.println(catHouse.toString());
     }
 }
