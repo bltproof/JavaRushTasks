@@ -3,6 +3,7 @@ package com.javarush.task.task33.task3310;
 import com.javarush.task.task33.task3310.strategy.HashMapStorageStrategy;
 import com.javarush.task.task33.task3310.strategy.StorageStrategy;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,16 +33,16 @@ public class Solution {
 
         Shortener shortener = new Shortener(strategy);
 
-        long start = System.currentTimeMillis();
+        Date start = new Date();//System.currentTimeMillis();
         Set<Long> idSet = getIds(shortener, strings);
-        long end = System.currentTimeMillis() - start;
-        System.out.println("getIds time: " + end + "ms");
+        Date end = new Date();//System.currentTimeMillis() - start;
+        System.out.println("'getIds' time: " + (end.getTime() - start.getTime()) + "ms");
 
 
-        long start2 = System.currentTimeMillis();
+        Date start2 = new Date();//System.currentTimeMillis();
         Set<String> stringSet = getStrings(shortener, idSet);
-        long end2 = System.currentTimeMillis() - start2;
-        System.out.println("getStrings time: " + end2 + "ms");
+        Date end2 = new Date();//System.currentTimeMillis() - start2;
+        System.out.println("'getStrings' time: " + (end2.getTime() - start2.getTime()) + "ms");
 
         if (strings.containsAll(stringSet)) System.out.println("Тест пройден.");
         else System.out.println("Тест не пройден.");
