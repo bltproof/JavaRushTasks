@@ -36,16 +36,16 @@ public class Solution {
         Date start = new Date();//System.currentTimeMillis();
         Set<Long> idSet = getIds(shortener, strings);
         Date end = new Date();//System.currentTimeMillis() - start;
-        System.out.println("'getIds' time: " + (end.getTime() - start.getTime()) + "ms");
+        Helper.printMessage("'getIds' time: " + (end.getTime() - start.getTime()) + "ms");
 
 
         Date start2 = new Date();//System.currentTimeMillis();
         Set<String> stringSet = getStrings(shortener, idSet);
         Date end2 = new Date();//System.currentTimeMillis() - start2;
-        System.out.println("'getStrings' time: " + (end2.getTime() - start2.getTime()) + "ms");
+        Helper.printMessage("'getStrings' time: " + (end2.getTime() - start2.getTime()) + "ms");
 
-        if (strings.containsAll(stringSet)) System.out.println("Тест пройден.");
-        else System.out.println("Тест не пройден.");
+        if (strings.containsAll(stringSet)) Helper.printMessage("Тест пройден.");
+        else Helper.printMessage("Тест не пройден.");
     }
 
     public static void main(String[] args) {
