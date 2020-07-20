@@ -1,6 +1,7 @@
 package com.javarush.task.task33.task3310;
 
 import com.javarush.task.task33.task3310.strategy.HashMapStorageStrategy;
+import com.javarush.task.task33.task3310.strategy.OurHashMapStorageStrategy;
 import com.javarush.task.task33.task3310.strategy.StorageStrategy;
 
 import java.util.Date;
@@ -33,15 +34,15 @@ public class Solution {
 
         Shortener shortener = new Shortener(strategy);
 
-        Date start = new Date();//System.currentTimeMillis();
+        Date start = new Date();
         Set<Long> idSet = getIds(shortener, strings);
-        Date end = new Date();//System.currentTimeMillis() - start;
+        Date end = new Date();
         Helper.printMessage("'getIds' time: " + (end.getTime() - start.getTime()) + "ms");
 
 
-        Date start2 = new Date();//System.currentTimeMillis();
+        Date start2 = new Date();
         Set<String> stringSet = getStrings(shortener, idSet);
-        Date end2 = new Date();//System.currentTimeMillis() - start2;
+        Date end2 = new Date();
         Helper.printMessage("'getStrings' time: " + (end2.getTime() - start2.getTime()) + "ms");
 
         if (strings.containsAll(stringSet)) Helper.printMessage("Тест пройден.");
@@ -50,5 +51,6 @@ public class Solution {
 
     public static void main(String[] args) {
         testStrategy(new HashMapStorageStrategy(), 10_000L);
+        testStrategy(new OurHashMapStorageStrategy(), 10_000L);
     }
 }
