@@ -29,5 +29,4 @@ public class HashBiMapStorageStrategy implements StorageStrategy {
     public String getValue(Long key) {
         return data.get(key);
     }
-
 }
