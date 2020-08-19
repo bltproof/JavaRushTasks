@@ -4,7 +4,7 @@ import com.javarush.task.task37.task3708.cache.LRUCache;
 import com.javarush.task.task37.task3708.storage.Storage;
 
 public class CachingProxyRetriever implements Retriever {
-    private OriginalRetriever originalRetriever;
+    private Retriever originalRetriever;
     private LRUCache<Long, Object> lruCache;
 
     public CachingProxyRetriever(Storage storage) {
