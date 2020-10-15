@@ -5,7 +5,6 @@ import com.javarush.task.task28.task2810.vo.Vacancy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Controller {
